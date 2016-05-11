@@ -236,6 +236,8 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
   min-width: 320px;
+  // thanks, dylan!
+  max-width: 600px;
 }
 
 .modal_nav {
@@ -245,7 +247,7 @@ a {
   line-height: 2.5em;
   color: $white;
 
-  & .item-left { float: left;  margin-right: -36px; margin-left: -12px }
+  & .item-left { float: left;  margin-right: -36px;  margin-left: -12px; }
   & .item-right { float: right; margin-left: -36px; margin-right: -12px; }
 
   &.modal_nav--top { line-height: 1.5em; }

@@ -956,6 +956,7 @@ a {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   min-width: 320px;
+  max-width: 600px;
 }
 
 .modal_nav {
