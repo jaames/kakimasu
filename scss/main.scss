@@ -1,4 +1,9 @@
-
+/*!
+|*
+|* kakimasu project by James Daniel -- whale@rakujira.jp
+|* source code available on github -- https://github.com/jaames/kakimasu
+|*
+*/
 
 $white: #fafafa;
 $blue: #90D2E8;
@@ -42,10 +47,7 @@ a {
   background: darken($accent-color,4);
   color: #ffffff;
 }
-::-moz-selection {
-  background: darken($accent-color, 4);
-  color: #ffffff;
-}
+
 ::-webkit-selection {
   background: darken($accent-color, 4);
   color: #ffffff;
