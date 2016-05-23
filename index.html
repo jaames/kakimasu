@@ -41,7 +41,7 @@
     <div class="wrap">
       <div class="header_logo">
         <h1 class="header_title">kakimasu<span class="header_bubble">beta</span></h1>
-        <h5 class="header_subtitle">Let's write hiragana!</h5>
+        <h5 class="header_subtitle">Let's write Japanese!</h5>
       </div>
       <div class="header_text">
         <p>Writing Japanese is hard, so this is my attempt at making it easier to learn.</p>
@@ -51,14 +51,22 @@
   </header>
 
   <section class="wrap" id="grid-view" v-cloak>
+    <div class="charset">
+      Let's write:
+      <select class="charset__select" v-model="charset">
+        <option>hiragana</option>
+        <option>katakana</option>
+      </select>
+    </div>
     <ul class="grid">
-      <li v-for="item in items" :id="item.id" :class="['grid_box', item.nudge ? 'grid_box--nudge-' + item.nudge : '']" @click="open(item.id)">
-        <div class="card card--kana">
+      <li v-for="item in items" :id="item.id" class="grid_box" @click="open(item.id)">
+        <div v-if="item.spacer" class="card card--spacer"></div>
+        <div v-else class="card card--kana">
           <svg class="kana_svg" viewBox="0 0 180 180">
             <path v-for="path in item.paths" :d="path.d"></path>
           </svg>
         </div>
-        <h5 class="kana_romaji">{{item.romaji}}</h5>
+        <h5 v-if="item.romaji" class="kana_romaji">{{item.romaji}}</h5>
       </li>
     </ul>
   </section>

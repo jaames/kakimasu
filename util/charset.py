@@ -29,6 +29,9 @@ with open(charSetDir + "/base.json") as file:
     charMap = json.load(file)
 
 for char in charMap:
+
+    if "spacer" in char: continue
+
     tree = xmlParser.parse(charSetDir + "/svg/" + char["id"] + ".svg")
     root = tree.getroot()
 

@@ -180,15 +180,19 @@
         "timings": [60, 15, 50]
     },
     {
+        "spacer": true
+    },
+    {
         "id": "hiragana_yu",
         "romaji": "yu",
-        "nudge": 1,
         "timings": [100, 40]
+    },
+    {
+        "spacer": true
     },
     {
         "id": "hiragana_yo",
         "romaji": "yo",
-        "nudge": 1,
         "timings": [100, 20]
     },
     {
@@ -222,9 +226,17 @@
         "timings": [50, 100]
     },
     {
+        "spacer": true
+    },
+    {
+        "spacer": true
+    },
+    {
+        "spacer": true
+    },
+    {
         "id": "hiragana_wo",
         "romaji": "wo",
-        "nudge": 3,
         "timings": [40, 80, 60]
     },
     {
