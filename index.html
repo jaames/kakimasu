@@ -59,9 +59,9 @@
       </select>
     </div>
     <ul class="grid">
-      <li v-for="item in items" :id="item.id" class="grid_box" @click="open(item.id)">
+      <li v-for="item in items" :id="item.id" class="grid_box">
         <div v-if="item.spacer" class="card card--spacer"></div>
-        <div v-else class="card card--kana">
+        <div v-else class="card card--kana" @click="open(item.id)">
           <svg class="kana_svg" viewBox="0 0 180 180">
             <path v-for="path in item.paths" :d="path.d"></path>
           </svg>
