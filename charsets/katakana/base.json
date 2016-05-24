@@ -1,0 +1,253 @@
+[
+    {
+        "id": "katakana_a",
+        "romaji": "a",
+        "timings": [60, 40]
+    },
+    {
+        "id": "katakana_i",
+        "romaji": "i",
+        "timings": [30, 40]
+    },
+    {
+        "id": "katakana_u",
+        "romaji": "u",
+        "timings": [10, 10, 60]
+    },
+    {
+        "id": "katakana_e",
+        "romaji": "e",
+        "timings": [40, 30, 45]
+    },
+    {
+        "id": "katakana_o",
+        "romaji": "o",
+        "timings": [45, 45, 30]
+    },
+    {
+        "id": "katakana_ka",
+        "romaji": "ka",
+        "timings": [80, 40]
+    },
+    {
+        "id": "katakana_ki",
+        "romaji": "ki",
+        "timings": [35, 35, 45]
+    },
+    {
+        "id": "katakana_ku",
+        "romaji": "ku",
+        "timings": [10, 40]
+    },
+    {
+        "id": "katakana_ke",
+        "romaji": "ke",
+        "timings": [10, 30, 30]
+    },
+    {
+        "id": "katakana_ko",
+        "romaji": "ko",
+        "timings": [60, 30]
+    },
+    {
+        "id": "katakana_sa",
+        "romaji": "sa",
+        "timings": [40, 20, 50]
+    },
+    {
+        "id": "katakana_shi",
+        "romaji": "shi",
+        "timings": [10, 10, 50]
+    },
+    {
+        "id": "katakana_su",
+        "romaji": "su",
+        "timings": [60, 20]
+    },
+    {
+        "id": "katakana_se",
+        "romaji": "se",
+        "timings": [50, 60]
+    },
+    {
+        "id": "katakana_so",
+        "romaji": "so",
+        "timings": [10, 60]
+    },
+    {
+        "id": "katakana_ta",
+        "romaji": "ta",
+        "timings": [10, 60, 10]
+    },
+    {
+        "id": "katakana_chi",
+        "romaji": "chi",
+        "timings": [20, 30, 40]
+    },
+    {
+        "id": "katakana_tsu",
+        "romaji": "tsu",
+        "timings": [10, 10, 50]
+    },
+    {
+        "id": "katakana_te",
+        "romaji": "te",
+        "timings": [20, 20, 12]
+    },
+    {
+        "id": "katakana_to",
+        "romaji": "to",
+        "timings": [40, 20]
+    },
+    {
+        "id": "katakana_na",
+        "romaji": "na",
+        "timings": [30, 30]
+    },
+    {
+        "id": "katakana_ni",
+        "romaji": "ni",
+        "timings": [30, 40]
+    },
+    {
+        "id": "katakana_nu",
+        "romaji": "nu",
+        "timings": [50, 20]
+    },
+    {
+        "id": "katakana_ne",
+        "romaji": "ne",
+        "timings": [10, 40, 20, 20]
+    },
+    {
+        "id": "katakana_no",
+        "romaji": "no",
+        "timings": [50]
+    },
+    {
+        "id": "katakana_ha",
+        "romaji": "ha",
+        "timings": [40, 40]
+    },
+    {
+        "id": "katakana_hi",
+        "romaji": "hi",
+        "timings": [30, 60]
+    },
+    {
+        "id": "katakana_fu",
+        "romaji": "fu",
+        "timings": [80]
+    },
+    {
+        "id": "katakana_he",
+        "romaji": "he",
+        "timings": [80]
+    },
+    {
+        "id": "katakana_ho",
+        "romaji": "ho",
+        "timings": [40, 40, 20, 20]
+    },
+    {
+        "id": "katakana_ma",
+        "romaji": "ma",
+        "timings": [50, 20]
+    },
+    {
+        "id": "katakana_mi",
+        "romaji": "mi",
+        "timings": [20, 20, 25]
+    },
+    {
+        "id": "katakana_mu",
+        "romaji": "mu",
+        "timings": [80, 20]
+    },
+    {
+        "id": "katakana_me",
+        "romaji": "me",
+        "timings": [50, 30]
+    },
+    {
+        "id": "katakana_mo",
+        "romaji": "mo",
+        "timings": [30, 40, 60]
+    },
+    {
+        "id": "katakana_ya",
+        "romaji": "ya",
+        "timings": [60, 40],
+        "next": "katakana_yu"
+    },
+    {
+        "spacer": true
+    },
+    {
+        "id": "katakana_yu",
+        "romaji": "yu",
+        "timings": [40, 50],
+        "prev": "katakana_ya",
+        "next": "katakana_yo"
+    },
+    {
+        "spacer": true
+    },
+    {
+        "id": "katakana_yo",
+        "romaji": "yo",
+        "timings": [60, 30, 30],
+        "prev": "katakana_yu"
+    },
+    {
+        "id": "katakana_ra",
+        "romaji": "ra",
+        "timings": [25, 60]
+    },
+    {
+        "id": "katakana_ri",
+        "romaji": "ri",
+        "timings": [20, 50]
+    },
+    {
+        "id": "katakana_ru",
+        "romaji": "ru",
+        "timings": [50, 60]
+    },
+    {
+        "id": "katakana_re",
+        "romaji": "re",
+        "timings": [70]
+    },
+    {
+        "id": "katakana_ro",
+        "romaji": "ro",
+        "timings": [35, 50, 30]
+    },
+    {
+        "id": "katakana_wa",
+        "romaji": "wa",
+        "timings": [50, 100],
+        "next": "katakana_wo"
+    },
+    {
+        "spacer": true
+    },
+    {
+        "spacer": true
+    },
+    {
+        "spacer": true
+    },
+    {
+        "id": "katakana_wo",
+        "romaji": "wo",
+        "timings": [40, 30, 50],
+        "prev": "katakana_wa"
+    },
+    {
+        "id": "katakana_n",
+        "romaji": "n",
+        "timings": [10, 50]
+    }
+]

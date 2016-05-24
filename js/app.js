@@ -1,4 +1,4 @@
-// findIndex helper, since it doesn't have great browser support right now
+// findIndex utility, since it doesn't have great browser support right now
 function findIndex(array, predicate, fromRight) {
   var length = array.length,
       index = fromRight ? length : -1;
@@ -15,9 +15,9 @@ function findIndex(array, predicate, fromRight) {
 var app = (function () {
 
   // some potentially useful things to keep track of
-  var $body =               document.body;
-  var $gridViewContainer =  document.getElementById('grid-view');
-  var $modalViewContainer = document.getElementById('modal-view');
+  var $body =               document.body,
+      $gridViewContainer =  document.getElementById('grid-view'),
+      $modalViewContainer = document.getElementById('modal-view');
 
   var charSet = {
     // getItemDetails
@@ -33,9 +33,11 @@ var app = (function () {
       });
 
       var data = this.items[i];
-      // we'll also need to get adjacent chacters if possible
-      data.prevItemId = this.items[i - 1] ? this.items[i - 1].id : false;
-      data.nextItemId = this.items[i + 1] ? this.items[i + 1].id : false;
+      // we'll also need to get adjacent characters if possible
+      // in the case of characters that are next to spacers, 'next' and 'prev' may be defined explicitly
+      // otherwise we try to get the adjacent items in the array, or return false if nothing is found
+      data.prevItemId = data.prev || (this.items[i - 1] ? this.items[i - 1].id : false)
+      data.nextItemId = data.next || (this.items[i + 1] ? this.items[i + 1].id : false)
       return data;
     },
     // loadFromJSON
@@ -43,6 +45,7 @@ var app = (function () {
     loadFromJSON: function (url, callback) {
       // we'll use an AJAX request to get the json
       var req = new XMLHttpRequest();
+      var url = './charsets/' + url + '/compiled.json';
 
       req.onreadystatechange = function () {
         if(req.readyState == 4 && req.status == 200) {
@@ -62,6 +65,7 @@ var app = (function () {
     el: $modalViewContainer,
     data: {
       isOpen: false,
+      isPlaying: false,
       item: {}
     },
     ready: function () {
@@ -75,8 +79,15 @@ var app = (function () {
       });
       // listen for when the open item changes and re-init the animation instance
       this.$watch('item', function () {
-        this.animation.init()
-        this.animation.finish()
+        this.animation.init();
+        this.animation.reset();
+        this.animation.callback = function () {
+          this.isPlaying = false;
+        }.bind(this);
+        this.play();
+      })
+      this.$watch('isPlaying', function () {
+        console.log(this.isPlaying);
       })
 
     },
@@ -104,8 +115,19 @@ var app = (function () {
       },
 
       play: function () {
-        this.animation.reset()
+        // if the animation has finished, reset
+        this.animation.getStatus() === 'end' ? this.animation.reset() : false;
+        this.isPlaying = true;
         this.animation.play()
+      },
+
+      pause: function () {
+        this.isPlaying = false;
+        this.animation.stop();
+      },
+
+      _togglePlay: function () {
+        this.isPlaying ? this.pause() : this.play();
       },
 
       // util wrapper for ramjet transitions
@@ -163,11 +185,15 @@ var app = (function () {
   var gridView = new Vue({
     el: '#grid-view',
     data: {
-      items: []
+      items: [],
+      charset: 'hiragana'
     },
     ready: function () {
       // load default set
-      this.loadSet('charsets/hiragana/compiled.json')
+      this.loadSet(this.charset)
+      this.$watch('charset', function () {
+        this.loadSet(this.charset)
+      })
     },
     methods: {
       open: modalView.open,

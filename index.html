@@ -82,7 +82,9 @@
         <svg class="kana_svg" v-el:svg viewBox="0 0 180 180">
           <path v-for="path in item.paths" :d="path.d" :data-duration="path.t" data-delay="15"></path>
         </svg>
-        <a class="button button--play" @click="play"> <i class="icon icon--play"></i> </a>
+        <a class="button button--play" @click="_togglePlay">
+          <i :class="['icon', isPlaying ? 'icon--pause' : 'icon--play']"></i>
+        </a>
       </div>
 
       <div class="modal_nav modal_nav--bottom">
@@ -106,8 +108,8 @@
       </div>
       <div class="footer_block">
         <span class="label">shoutout to</span>
-        <a href="https://lightni.ng/">the amazing austin</a>
-        <span class="label">for providing me with free hosting c:</span>
+        <a href="https://lightni.ng/">austin burk</a>
+        <span class="label">for providing me with hosting (:</span>
       </div>
     </div>
   </footer>

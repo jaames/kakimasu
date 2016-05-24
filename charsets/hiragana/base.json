@@ -177,7 +177,8 @@
     {
         "id": "hiragana_ya",
         "romaji": "ya",
-        "timings": [60, 15, 50]
+        "timings": [60, 15, 50],
+        "next": "hiragana_yu"
     },
     {
         "spacer": true
@@ -185,7 +186,9 @@
     {
         "id": "hiragana_yu",
         "romaji": "yu",
-        "timings": [100, 40]
+        "timings": [100, 40],
+        "prev": "hiragana_ya",
+        "next": "hiragana_yo"
     },
     {
         "spacer": true
@@ -193,7 +196,8 @@
     {
         "id": "hiragana_yo",
         "romaji": "yo",
-        "timings": [100, 20]
+        "timings": [100, 20],
+        "prev": "hiragana_yu"
     },
     {
         "id": "hiragana_ra",
@@ -223,7 +227,8 @@
     {
         "id": "hiragana_wa",
         "romaji": "wa",
-        "timings": [50, 100]
+        "timings": [50, 100],
+        "next": "hiragana_wo"
     },
     {
         "spacer": true
@@ -237,7 +242,8 @@
     {
         "id": "hiragana_wo",
         "romaji": "wo",
-        "timings": [40, 80, 60]
+        "timings": [40, 80, 60],
+        "prev": "hiragana_wa"
     },
     {
         "id": "hiragana_n",

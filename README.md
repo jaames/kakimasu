@@ -2,20 +2,32 @@
 ###### learn how to write Japanese kana
 ___
 
-When I started to learn Japanese, I had the most difficulty with the writing system. Japanese uses a mix of two phonetic alphabets (hiragana and katakana), and a few thousand kanji, which are somewhat pictographic. You'll be forgiven if you think that sounds rather overwhelming. (":
+When I started to learn Japanese, I had the most difficulty with the writing system. Japanese uses a mix of two phonetic alphabets (hiragana and katakana), and a few thousand kanji, which are somewhat pictographic. You'll be forgiven if you think that sounds rather overwhelming. (':
 
-I wanted to build an interesting way to learn how to write Japanese kana, utilising modern web technology -- something that I feel other Japanese learning resources are yet to make use of.
+I wanted to build an interesting way to learn how to write Japanese kana, utilizing modern web technology -- something that I feel other Japanese learning resources are yet to make use of.
 
-For now kakimasu only has hiragana, but I intend to keep working on improving and adding to it. (:
+For now kakimasu only has hiragana and katakana, but I intend to keep working on improving and adding to it!
 
+#### Roadmap:
 
-#### Future Plans:
+###### Completed:
 
- - [ ] Tweak character animation timings and svgs to get them juuust right
- - [ ] Add [katakana](https://en.wikipedia.org/wiki/Katakana) character set
+ - [x] Add [katakana](https://en.wikipedia.org/wiki/Katakana) character set
+ - [x] Add play/pause toggle for animation playback
+ - [x] Make it more obvious that certain sounds aren't present in the Japanese language and they're not just missing because of some bug
+
+###### Upcoming:
+
  - [ ] Do proper [feature detection](http://responsivenews.co.uk/post/18948466399/cutting-the-mustard) and display a message or something if a browser is not supported
- - [ ] Add a 'test' feature, i.e. show random characters and users have to guess what they are
+ - [ ] Tweak character animation timings and svgs to get them juuust right
+ - [ ] Add option to change playback speed
+
+###### Future plans:
+
  - [ ] Add level 1 [kanji](https://en.wikipedia.org/wiki/Kanji) character set
+ - [ ] Add a 'test' feature, i.e. show random characters and users have to guess what they are
+ - [ ] Add basic vocabulary words for each character
+ - [ ] Find someone that can provide voice recordings of the character pronunciations?
 
 
 #### Third-party JS Libraries Used:

@@ -77,10 +77,13 @@ a {
   text-align: center;
 
   .charset__select {
+    color: darken($blue, 32);
+    cursor: pointer;
     -webkit-appearance: none;
+    -moz-appearance: none;
     outline: 0;
     border: 0;
-    border-bottom: 0.2rem solid $white;
+    border-bottom: 0.2rem solid darken($blue, 32);;
     padding: 0 0.5rem;
     background: none;
     display: inline;
@@ -103,12 +106,6 @@ a {
     padding-left: 6px;
   }
 
-  & .grid_box--nudge-1 { margin-left: 20%; }
-  & .grid_box--nudge-2 { margin-left: 40%; }
-  & .grid_box--nudge-3 { margin-left: 60%; }
-  & .grid_box--nudge-4 { margin-left: 80%; }
-  & .grid_box--nudge-5 { margin-left: 100%; }
-
   @include breakpoint(large) {
     margin-left: -$grid-gutter;
 
@@ -128,7 +125,7 @@ a {
 
   @include breakpoint(large) {
     border-radius: 8px;
-    box-shadow: 0 2px 12px -6px black;
+    box-shadow: 0 2px 12px -6px rgba(0, 0, 0, 0.6);
   }
 
   &.card--kana {
@@ -195,6 +192,7 @@ a {
   &:hover { cursor: pointer; transform: scale(1.2); }
 
   &.icon--play {       background-image: url("../img/icon-play.svg"); &:hover { transform: none; } }
+  &.icon--pause {      background-image: url("../img/icon-pause.svg"); &:hover { transform: none; } }
   &.icon--close {      background-image: url("../img/icon-close.svg"); }
   &.icon--prev-arrow { background-image: url("../img/icon-prev-arrow.svg"); }
   &.icon--next-arrow { background-image: url("../img/icon-next-arrow.svg"); }
@@ -280,7 +278,8 @@ a {
   transform: translate(-50%, -50%);
   min-width: 320px;
   // thanks, dylan!
-  max-width: 600px;
+  max-width: 400px;
+  width: auto;
 }
 
 .modal_nav {
@@ -300,7 +299,7 @@ a {
 .header {
   background: darken($body-background, 8);
   padding-top: 2rem;
-  margin-bottom: $grid-gutter;
+  //margin-bottom: $grid-gutter;
 }
 
 .header_logo {
