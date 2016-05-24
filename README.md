@@ -12,9 +12,10 @@ For now kakimasu only has hiragana and katakana, but I intend to keep working on
 
 ###### Completed:
 
- - [x] Add [katakana](https://en.wikipedia.org/wiki/Katakana) character set
- - [x] Add play/pause toggle for animation playback
+ - [x] Added [katakana](https://en.wikipedia.org/wiki/Katakana) character set
+ - [x] Added play/pause toggle for animation playback
  - [x] Make it more obvious that certain sounds aren't present in the Japanese language and they're not just missing because of some bug
+ - [x] Keyboard navigation (left/right = prev/next items and spacebar = play/pause)
 
 ###### Upcoming:
 

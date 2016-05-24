@@ -80,9 +80,9 @@
 
       <div class="card card--modal">
         <svg class="kana_svg" v-el:svg viewBox="0 0 180 180">
-          <path v-for="path in item.paths" :d="path.d" :data-duration="path.t" data-delay="15"></path>
+          <path v-for="path in item.paths" :d="path.d" :data-duration="path.t" data-delay="10"></path>
         </svg>
-        <a class="button button--play" @click="_togglePlay">
+        <a class="button button--play" @click="togglePlay">
           <i :class="['icon', isPlaying ? 'icon--pause' : 'icon--play']"></i>
         </a>
       </div>
