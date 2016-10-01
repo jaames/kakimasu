@@ -72,13 +72,13 @@
   </section>
 
   <div v-cloak id="modal-view" class="modal-container" transition="modal" v-show="isOpen" @click.self="close">
-    <div class="modal" v-el:modal>
+    <div class="modal" id="modal-view-container" v-el:modal>
 
       <div class="modal_nav modal_nav--top">
         <div class="item-right" @click="close"> <i class="icon icon--close"></i> </div>
       </div>
 
-      <div class="card card--modal">
+      <div class="card card--modal" id="modal-view-inner">
         <svg class="kana_svg" v-el:svg viewBox="0 0 180 180">
           <path v-for="path in item.paths" :d="path.d" :data-duration="path.t" data-delay="10"></path>
         </svg>
@@ -114,6 +114,28 @@
     </div>
   </footer>
 
+  <script>
+      (function() {
+          // detect essential features used in main.css and app-min.js
+          var featureDetect = function () {
+              var vueTest = ('__defineGetter__' in Object.prototype);
+              var svgTest = !!document.createElementNS && !!document.createElementNS("http://www.w3.org/2000/svg", "svg").createSVGRect;
+              var transitionTest = ('transition' in document.documentElement.style) || ('WebkitTransition' in document.documentElement.style);
+              return vueTest && svgTest && transitionTest;
+          };
+
+          // if vue, svg or css transitions won't work
+          if(!featureDetect()) {
+              var modal = document.getElementById('modal-view');
+              var modalContainer = document.getElementById('modal-view-container');
+              var modalInner = document.getElementById('modal-view-inner');
+              modal.style.display = "block";
+              modal.style.opacity = 1;
+              modalContainer.style.opacity = 1;
+              modalInner.innerHTML('<h1 style="text-align:center">Oh Dear</h1><h3>Please <a href="http://outdatedbrowser.com">upgrade your browser</a> to enjoy kakimasu.</h3>');
+          }
+      })();
+  </script>
   <script type="text/javascript" src="./js/min/app-min.js"></script>
 </body>
 </html>
