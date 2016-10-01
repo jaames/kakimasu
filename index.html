@@ -72,7 +72,7 @@
   </section>
 
   <div v-cloak id="modal-view" class="modal-container" transition="modal" v-show="isOpen" @click.self="close">
-    <div class="modal" v-el:modal>
+    <div class="modal" id="modal-view-container" v-el:modal>
 
       <div class="modal_nav modal_nav--top">
         <div class="item-right" @click="close"> <i class="icon icon--close"></i> </div>
@@ -127,10 +127,11 @@
           // if vue, svg or css transitions won't work
           if(!featureDetect()) {
               var modal = document.getElementById('modal-view');
+              var modalContainer = document.getElementById('modal-view-container');
               var modalInner = document.getElementById('modal-view-inner');
               modal.style.display = "block";
               modal.style.opacity = 1;
-              modal.style.opacity = 1;
+              modalContainer.style.opacity = 1;
               modalInner.innerHTML('<h1 style="text-align:center">Oh Dear</h1><h3>Please <a href="http://outdatedbrowser.com">upgrade your browser</a> to enjoy kakimasu.</h3>');
           }
       })();
