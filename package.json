@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "name": "kakimasu",
+  "scripts": {
+    "dev": "vbuild --dev",
+    "build": "vbuild"
+  },
+  "dependencies": {
+    "ramjet": "^0.5.0",
+    "vivus": "^0.4.0",
+    "vue": "2.1.5"
+  },
+  "devDependencies": {
+    "node-sass": "^4.0.0",
+    "sass-loader": "^4.1.0",
+    "vue-loader": "10.0.2",
+    "vue-template-compiler": "2.1.5"
+  }
+}
