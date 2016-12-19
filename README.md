@@ -35,3 +35,12 @@ For now kakimasu only has hiragana and katakana, but I intend to keep working on
 - [Vue JS](http://vuejs.org/)
 - [Vivus](https://github.com/maxwellito/vivus)
 - [Ramjet](https://github.com/Rich-Harris/ramjet)
+
+#### Building / Contributing
+
+Clone this repo to your local machine:
+```bash
+git clone https://github.com/jaames/kakimasu.git
+```
+
+kakimasu is built using [vbuild](https://github.com/egoist/vbuild), which must be [installed globally with npm](https://github.com/egoist/vbuild#quick-start) before building.
