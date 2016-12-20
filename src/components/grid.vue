@@ -11,6 +11,9 @@
 
   module.exports = {
     props: ["characters"],
+    components: {
+      kana
+    },
     methods: {
       playAll: function () {
         // loop through the grid's child components
@@ -22,9 +25,6 @@
         }
       }
     },
-    components: {
-      kana
-    }
   }
 </script>
 
@@ -46,16 +46,6 @@
     float: left;
     width: 20%;
     padding-left: $grid-gutter;
-  }
-
-  .kana {}
-
-  .kana__svg {
-  	fill: none;
-    stroke: $color-primary;
-    stroke-width: 16px;
-    stroke-linecap: round;
-    stroke-linejoin: round;
   }
 
 </style>

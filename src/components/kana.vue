@@ -11,7 +11,7 @@
 
   module.exports = {
     props: ["character", "animatable"],
-    data: function () {
+    data: () => {
       return {
         animation: null
       }
