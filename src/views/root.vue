@@ -23,8 +23,9 @@
 
   var router = new vueRouter({
     routes: [
-      { path: "/:charset", component: index },
-      { path: "/:charset/:character", component: view },
+      { path: "/:charset", component: index, children: [
+        { path: "/:charset/:character", component: view }
+      ]},
       { path: "*", component: index },
     ]
   });

@@ -1,9 +1,11 @@
 // custom vars
 $color-primary: #f96f74;
-$color-secondary: #B7E3E4;
+$color-secondary: #c3d3f0;
 
 // foundation override settings
 $body-background: $color-secondary;
 $body-font-color: $color-primary;
+$global-radius: 6px;
+$button-background: $color-primary;
 // "~" refers to the node_modules directory -- that's a neet trick to remember c:
 @import "~foundation-sites/scss/foundation";

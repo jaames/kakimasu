@@ -2,7 +2,7 @@
   <ul class="grid">
     <li class="grid__item" v-for="char in characters">
       <router-link :to="'/' + charsetId + '/' + char.romaji">
-        <kana :character="char"></kana>
+        <kana :character="char" label="true"></kana>
       </router-link>
     </li>
   </ul>

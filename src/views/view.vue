@@ -1,7 +1,7 @@
 <template>
   <div class="modal__frame">
     <div class="modal">
-      <kana :character="char"></kana>
+      <kana :character="char" animatable="true" controls="true" label="true"></kana>
     </div>
   </div>
 </template>

@@ -20,7 +20,7 @@
 }
 
 .modal {
-  width: 400px;
+  width: 320px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -33,4 +33,7 @@
   left: 0;
   right: 0;
   bottom: 0;
+  background-color: rgba(desaturate(darken($color-secondary, 64), 24), 0.8);
 }
+
+@include foundation-button;

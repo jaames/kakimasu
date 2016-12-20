@@ -1,6 +1,7 @@
 <template>
   <div class="page page--index">
     <grid ref="grid" :characters="charsetItems"></grid>
+    <router-view></router-view>
   </div>
 </template>
 
