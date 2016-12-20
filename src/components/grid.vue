@@ -1,7 +1,9 @@
 <template>
   <ul class="grid">
     <li class="grid__item" v-for="char in characters">
-      <kana :character="char" animatable="true"></kana>
+      <router-link :to="'/' + charsetId + '/' + char.romaji">
+        <kana :character="char"></kana>
+      </router-link>
     </li>
   </ul>
 </template>
@@ -14,17 +16,11 @@
     components: {
       kana
     },
-    methods: {
-      playAll: function () {
-        // loop through the grid's child components
-        var children = this.$children;
-        for (var i = 0; i < children.length; i++) {
-          var child = children[i];
-          // and call their play method if they are animatable
-          if (child.animatable) child.play();
-        }
+    computed: {
+      charsetId: function () {
+        return this.$parent.charsetId;
       }
-    },
+    }
   }
 </script>
 
@@ -46,6 +42,11 @@
     float: left;
     width: 20%;
     padding-left: $grid-gutter;
+  }
+
+  .grid a {
+    display: block;
+    text-decoration: none;
   }
 
 </style>

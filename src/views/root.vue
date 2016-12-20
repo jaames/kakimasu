@@ -1,6 +1,10 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
+  <div>
+    <nav class="navbar">
+    </nav>
+    <div class="wrap" id="app">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -10,7 +14,7 @@
 
   // import router views
   import index from "./index.vue";
-  import learn from "./learn.vue";
+  import view from "./view.vue";
 
   // set up a router
   import vue from "vue";
@@ -19,8 +23,9 @@
 
   var router = new vueRouter({
     routes: [
+      { path: "/:charset", component: index },
+      { path: "/:charset/:character", component: view },
       { path: "*", component: index },
-      { path: "/learn/:charset/:character", component: learn },
     ]
   });
 

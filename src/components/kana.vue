@@ -3,6 +3,9 @@
     <svg ref="svg" class="kana__svg" viewBox="0 0 180 180">
       <path v-for="path in character.paths" :d="path.d" :data-duration="path.t" data-delay="10"></path>
     </svg>
+    <div class="kana__label">
+      {{ character.romaji }}
+    </div>
   </div>
 </template>
 
@@ -43,14 +46,27 @@
 
   @import "../scss/foundation.scss";
 
-  .kana {}
+  .kana {
+  }
 
   .kana__svg {
+    display: block;
   	fill: none;
     stroke: $color-primary;
-    stroke-width: 16px;
+    stroke-width: 14px;
     stroke-linecap: round;
     stroke-linejoin: round;
+  }
+
+  .kana__label {
+    color: $color-primary;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .grid .kana {
+    padding: 2em;
   }
 
 </style>

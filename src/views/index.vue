@@ -14,14 +14,12 @@
     components: {
       grid
     },
-    data: () => {
-      return {
-        charsetId: "hiragana",
-      };
-    },
     computed: {
+      charsetId: function () {
+        return this.$route.params.charset;
+      },
       charsetItems: function () {
-        return charsets[this.charsetId];
+        return charsets[this.$route.params.charset];
       }
     },
   }

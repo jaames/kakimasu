@@ -1,6 +1,8 @@
 <template>
-  <div class="page page--read">
-    <kana :character="char"></kana>
+  <div class="modal__frame">
+    <div class="modal">
+      <kana :character="char"></kana>
+    </div>
   </div>
 </template>
 
@@ -23,9 +25,7 @@
     computed: {
       char: function () {
         var params = this.$route.params;
-        console.log(this.$route);
         var charset = charsets[params.charset];
-        if (!charset) return this.error404();
         var char = charset.filter((item) => {
           return item.romaji === params.character;
         });
