@@ -19,21 +19,18 @@
   max-width: 960px;
 }
 
-.modal {
-  width: 320px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.modal__frame {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(desaturate(darken($color-secondary, 64), 24), 0.8);
-}
-
 @include foundation-button;
+
+.is-under-modal {
+  overflow: hidden;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .25s ease;
+}
+.fade-enter {
+  opacity: 0;
+}
+.fade-leave-active {
+  opacity: 0;
+}

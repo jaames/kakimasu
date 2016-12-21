@@ -22,11 +22,26 @@
   vue.use(vueRouter);
 
   var router = new vueRouter({
+    mode: "history",
     routes: [
-      { path: "/:charset", component: index, children: [
-        { path: "/:charset/:character", component: view }
-      ]},
-      { path: "*", component: index },
+      {
+        path: '/',
+        redirect: '/hiragana'
+      },
+      {
+        path: "/:charset",
+        component: index,
+        children: [
+          {
+            path: "/:charset/:character",
+            component: view
+          }
+        ]
+      },
+      {
+        path: "*",
+        component: index
+      },
     ]
   });
 

@@ -30,6 +30,11 @@
 
   $grid-gutter: 6px;
 
+  .is-under-modal .grid {
+    transition: filter 0.3s ease;
+    filter: blur(8px);
+  }
+
   .grid {
     margin: 0;
     padding: 0;
