@@ -6,13 +6,17 @@ a, button {
   cursor: pointer;
 }
 
+button {
+  font-family: $body-font-family;
+}
+
 .navbar {
   line-height: 9rem;
   height: 9rem;
 }
 
 .navbar .wrap {
-  padding: 0 2rem;
+  padding: 0 1rem;
 }
 
 .navbar__title {
@@ -26,7 +30,48 @@ a, button {
   max-width: 960px;
 }
 
-@include foundation-button;
+.button {
+  @include button-style($color-primary, $color-primary, $white);
+  height: 42px;
+  line-height: 42px;
+  box-shadow: 0 3px 0 0 darken($color-primary, 12);
+}
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  content: '';
+  width: 24px;
+  height: 24px;
+  line-height: inherit;
+  background-image: url("../assets/icons.png");
+  background-repeat: no-repeat;
+  background-size: 48px 72px;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: -webkit-transform 0.1s;
+  transition: -webkit-transform 0.1s;
+  transition: transform 0.1s;
+  transition: transform 0.1s, -webkit-transform 0.1s
+}
+
+.icon.icon--leftArrow  { background-position: 0px 0px   }
+.icon.icon--rightArrow { background-position: -24px 0px }
+.icon.icon--play       { background-position: 0px -24px }
+.icon.icon--pause { background-position: -24px -24px }
+.icon.icon--close { background-position: 0px -48px }
+
+.icon:hover {
+    cursor: pointer;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1)
+}
+
+.icon.icon--play:hover,
+.icon.icon--pause:hover {
+  -webkit-transform: none;
+  transform: none
+}
 
 .is-under-modal {
   overflow: hidden;

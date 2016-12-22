@@ -7,12 +7,18 @@
       <div class="modal__body">
         <kana ref="kana" :character="char" animatable="true"></kana>
         <div class="modal__arrows">
-          <button @click="openPrevItem" v-show="hasPrevItem" class="arrow arrow--left">&lt;</button>
-          <button @click="openNextItem" v-show="hasNextItem" class="arrow arrow--right">&gt;</button>
+          <button @click="openPrevItem" v-show="hasPrevItem" class="arrow arrow--left">
+            <i class="icon icon--leftArrow"></i>
+          </button>
+          <button @click="openNextItem" v-show="hasNextItem" class="arrow arrow--right">
+            <i class="icon icon--rightArrow"></i>
+          </button>
         </div>
       </div>
       <div class="modal__foot">
-        <button class="button" @click="togglePlay">{{ isPlaying ? "pause" : "play" }}</button>
+        <button class="button" @click="togglePlay">
+          <i :class="['icon', isPlaying ? 'icon--pause' : 'icon--play']"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -135,8 +141,11 @@
   .modal__foot {
     text-align: center;
     display: block;
+  }
+
+  .modal__foot .button {
     margin: 0 auto;
-    width: 100px;
+    width: 84px;
   }
 
   .modal__arrows {

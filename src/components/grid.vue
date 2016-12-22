@@ -45,7 +45,7 @@
     padding-left: $grid-gutter;
     margin-bottom: 3rem;
   }
-
+  
   .grid .kana__body {
     background: $white;
     overflow: auto;
