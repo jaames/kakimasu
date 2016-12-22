@@ -1,12 +1,18 @@
 <template>
   <div class="modal__frame" @click.self="close">
     <div class="modal">
+      <div class="modal__head">
+        {{ char.romaji }}
+      </div>
       <div class="modal__body">
-        <kana :character="char" animatable="true" controls="true" upperLabel="true"></kana>
+        <kana ref="kana" :character="char" animatable="true"></kana>
         <div class="modal__arrows">
-          <button @click="openPrevItem" v-show="hasPrevItem" class="button arrow arrow--left">&lt;</button>
-          <button @click="openNextItem" v-show="hasNextItem" class="button arrow arrow--right">&gt;</button>
+          <button @click="openPrevItem" v-show="hasPrevItem" class="arrow arrow--left">&lt;</button>
+          <button @click="openNextItem" v-show="hasNextItem" class="arrow arrow--right">&gt;</button>
         </div>
+      </div>
+      <div class="modal__foot">
+        <button class="button" @click="togglePlay">{{ isPlaying ? "pause" : "play" }}</button>
       </div>
     </div>
   </div>
@@ -15,14 +21,19 @@
 <script>
   import charsets from "../components/charsets.js"
 
+  var doc = document.documentElement;
+
   // component imports
   import kana from "../components/kana.vue";
-
-  var body = document.body;
 
   module.exports = {
     components: {
       kana
+    },
+    data: () => {
+      return {
+        isPlaying: false
+      }
     },
     methods: {
       error404: function () {
@@ -30,18 +41,31 @@
         return false;
       },
       close: function () {
-        var charsetId = this.$route.params.charset;
-        this.$router.replace("/" + charsetId);
+        this.$router.replace({
+          name: "index",
+          params: {
+            charset: this.$route.params.charset
+          }
+        });
       },
       open: function (char) {
-        var params = this.$route.params;
-        this.$router.replace("/" + params.charset + "/" + char.romaji);
+        this.$router.replace({
+          name: "viewCharacter",
+          params: {
+            charset: this.$route.params.charset,
+            character: char.romaji
+          }
+        });
       },
       openNextItem: function () {
         this.open(this.char.nextItem);
       },
       openPrevItem: function () {
         this.open(this.char.prevItem);
+      },
+      togglePlay: function () {
+        this.$refs.kana.togglePlay();
+        this.isPlaying = this.$refs.kana.isPlaying;
       }
     },
     computed: {
@@ -62,15 +86,15 @@
       },
       charset: function () {
         return charsets[this.$route.params.charset];
-      }
+      },
     },
     mounted: function () {
-      body.classList.add("is-under-modal");
-      body.setAttribute("scroll", "no");
+      doc.classList.add("is-under-modal");
+      doc.setAttribute("scroll", "no");
     },
     beforeDestroy: function () {
-      body.classList.remove("is-under-modal");
-      body.removeAttribute("scroll");
+      doc.classList.remove("is-under-modal");
+      doc.removeAttribute("scroll");
     },
   }
 </script>
@@ -80,7 +104,7 @@
   @import "../scss/foundation.scss";
 
   .modal {
-    width: 320px;
+    width: 380px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -89,6 +113,8 @@
 
   .modal__frame {
     position: fixed;
+    height: 100vh;
+    width: 100vw;
     top: 0;
     left: 0;
     right: 0;
@@ -96,9 +122,21 @@
     background-color: rgba($color-secondary-dark, 0.85);
   }
 
+  .modal__head {
+    text-align: center;
+    font-size: 2.5rem;
+  }
+
   .modal__body {
     padding: 0 48px;
     position: relative;
+  }
+
+  .modal__foot {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    width: 100px;
   }
 
   .modal__arrows {

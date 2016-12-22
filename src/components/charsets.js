@@ -14,6 +14,7 @@ var findItemById = function (set, id) {
   return ret.length > 0 ? ret[0] : null;
 };
 
+// parse the character sets and add some references for the previous / next items that will come in handy later!
 for (var setId in charsets) {
   if (charsets.hasOwnProperty(setId)) {
     var set = charsets[setId];

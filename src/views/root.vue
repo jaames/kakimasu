@@ -1,6 +1,9 @@
 <template>
   <div>
     <nav class="navbar">
+      <div class="wrap">
+        <h1 class="navbar__title">kakimasu</h1>
+      </div>
     </nav>
     <div class="wrap" id="app">
       <router-view></router-view>
@@ -30,11 +33,13 @@
       },
       {
         path: "/:charset",
+        name: "index",
         component: index,
         children: [
           {
             path: "/:charset/:character",
-            component: view
+            name: "viewCharacter",
+            component: view,
           }
         ]
       },

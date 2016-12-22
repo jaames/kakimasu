@@ -1,16 +1,12 @@
 <template>
   <div class="kana">
-    <div v-if="upperLabel" class="kana__label">
-      {{ character.romaji }}
+    <div class="kana__body">
+      <svg ref="svg" class="kana__svg" viewBox="0 0 180 180">
+        <path v-for="path in character.paths" :d="path.d" :data-duration="path.t" data-delay="10"></path>
+      </svg>
     </div>
-    <svg ref="svg" class="kana__svg" viewBox="0 0 180 180">
-      <path v-for="path in character.paths" :d="path.d" :data-duration="path.t" data-delay="10"></path>
-    </svg>
     <div v-if="label" class="kana__label">
       {{ character.romaji }}
-    </div>
-    <div v-if="animatable && controls" class="kana__playbackControls">
-      <button class="button" @click="togglePlay">play</button>
     </div>
   </div>
 </template>
@@ -19,7 +15,7 @@
   import Vivus from 'vivus'
 
   module.exports = {
-    props: ["character", "animatable", "controls", "label", "upperLabel"],
+    props: ["character", "animatable", "label"],
     data: () => {
       return {
         animation: null,
@@ -30,7 +26,7 @@
       play: function () {
         var animation = this.animation;
         if (animation) {
-          if(this.animation.getStatus() === 'end') this.animation.reset();
+          if(animation.getStatus() === 'end') animation.reset();
           animation.play();
           this.isPlaying = true;
         }
@@ -58,16 +54,18 @@
           start: 'manual',
           pathTimingFunction: Vivus.EASE,
         });
+
+        var animation = this.animation;
         // set the default state to completion
-        this.animation.finish();
+        animation.finish();
         // when the animation finishes, set isPlaying to false
-        this.animation.callback = function () {
+        animation.callback = function () {
           this.isPlaying = false;
         }.bind(this);
         // if the character changes, re-init the animation
         this.$watch('character', function () {
-          this.animation.init();
-          this.animation.finish();
+          animation.init();
+          animation.finish();
         });
       }
     },
@@ -77,14 +75,6 @@
 <style lang="scss">
 
   @import "../scss/foundation.scss";
-
-  .kana .button {
-    text-align: center;
-    display: block;
-    margin: 0 auto;
-    width: 100px;
-  }
-
   .kana__svg {
     margin: -5% 0;
     display: block;
@@ -96,14 +86,10 @@
   }
 
   .kana__label {
-    color: $color-primary;
+    color: $body-font-color;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 1.75rem;
     text-align: center;
-  }
-
-  .grid .kana {
-    padding: 1.5em;
   }
 
   .modal .kana__svg {

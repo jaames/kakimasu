@@ -1,9 +1,10 @@
 <template>
   <ul class="grid">
     <li class="grid__item" v-for="char in characters">
-      <router-link :to="'/' + charsetId + '/' + char.romaji">
+      <router-link v-if="!char.spacer" router-link :to="'/' + charsetId + '/' + char.romaji">
         <kana :character="char" label="true"></kana>
       </router-link>
+      <div v-else class="spacer"></div>
     </li>
   </ul>
 </template>
@@ -28,12 +29,7 @@
 
   @import "../scss/foundation.scss";
 
-  $grid-gutter: 6px;
-
-  .is-under-modal .grid {
-    transition: filter 0.3s ease;
-    filter: blur(8px);
-  }
+  $grid-gutter: 4rem;
 
   .grid {
     margin: 0;
@@ -47,6 +43,27 @@
     float: left;
     width: 20%;
     padding-left: $grid-gutter;
+    margin-bottom: 3rem;
+  }
+
+  .grid .kana__body {
+    background: $white;
+    overflow: auto;
+    border-radius: 50%;
+    box-shadow: 0 2px 0 1px lighten($color-secondary, 12), 0 2px 2px 0px rgba($color-secondary-dark, 0.45);
+  }
+
+  .grid .kana__svg {
+    width: 82px;
+    height: 82px;
+    margin: 27px auto;
+  }
+
+  .grid .spacer {
+    height: 136px;
+    border-radius: 50%;
+    background: none;
+    border: 3px dashed $white;
   }
 
   .grid a {

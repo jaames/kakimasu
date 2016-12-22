@@ -2,15 +2,22 @@
 
 @include foundation-global-styles;
 
+a, button {
+  cursor: pointer;
+}
+
 .navbar {
-  line-height: 60px;
-  height: 60px;
-  padding: 0 14px;
+  line-height: 9rem;
+  height: 9rem;
+}
+
+.navbar .wrap {
+  padding: 0 2rem;
 }
 
 .navbar__title {
   margin: 0;
-  padding: 0;
+  padding: 0 0rem;
 }
 
 .wrap {
@@ -23,6 +30,11 @@
 
 .is-under-modal {
   overflow: hidden;
+}
+
+.is-under-modal .grid, .is-under-modal .navbar {
+  transition: filter 0.25s ease;
+  filter: blur(4px);
 }
 
 .fade-enter-active, .fade-leave-active {

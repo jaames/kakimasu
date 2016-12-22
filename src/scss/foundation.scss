@@ -1,11 +1,15 @@
 // custom vars
-$color-primary: #fe696f;
-$color-secondary: #b8e3e4;
-$color-secondary-dark: #434257;
+$color-primary: #fa7f84;
+$color-secondary: #88cdf1;
+$color-secondary-dark: rgb(37,29,55);
 
 // foundation override settings
+$white: #fafafa;
 $body-background: $color-secondary;
-$body-font-color: $color-primary;
+$body-font-color: $white;
+$body-font-family: 'Poppins', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$header-font-family: $body-font-family;
+
 $global-radius: 6px;
 $button-background: $color-primary;
 // "~" refers to the node_modules directory -- that's a neet trick to remember c:
