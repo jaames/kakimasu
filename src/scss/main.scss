@@ -17,11 +17,18 @@ button {
 
 .navbar .wrap {
   padding: 0 1rem;
+  @include clearfix();
 }
 
 .navbar__title {
+  float: left;
   margin: 0;
   padding: 0 0rem;
+}
+
+.navbar .dropdown {
+  float: right;
+  overflow: visible;
 }
 
 .wrap {
@@ -60,6 +67,7 @@ button {
 .icon.icon--play       { background-position: 0px -24px }
 .icon.icon--pause { background-position: -24px -24px }
 .icon.icon--close { background-position: 0px -48px }
+.icon.icon--dropdown { background-position: -24px -48px }
 
 .icon:hover {
     cursor: pointer;

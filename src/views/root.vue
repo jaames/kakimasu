@@ -3,6 +3,7 @@
     <nav class="navbar">
       <div class="wrap">
         <h1 class="navbar__title">kakimasu</h1>
+        <dropdown :items="dropdownItems" :selectedItem="$route.params.charset"></dropdown>
       </div>
     </nav>
     <div class="wrap" id="app">
@@ -18,6 +19,8 @@
   // import router views
   import index from "./index.vue";
   import view from "./view.vue";
+
+  import dropdown from "../components/dropdown.vue";
 
   // set up a router
   import vue from "vue";
@@ -52,6 +55,27 @@
 
   module.exports = {
     router,
+    components: {
+      dropdown
+    },
+    data: () => {
+      var dropdownItems = [];
+      for (var charset in charsets) {
+        if (charsets.hasOwnProperty(charset)) {
+          dropdownItems.push({
+            pathName: "index",
+            pathParams: {
+              charset: charset
+            },
+            label: charset
+          });
+        }
+      }
+
+      return {
+        dropdownItems
+      }
+    }
   };
 </script>
 
