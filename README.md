@@ -34,7 +34,6 @@ For now kakimasu only has hiragana and katakana, but I intend to keep working on
 #### Third-party JS Libraries Used:
 - [Vue JS](http://vuejs.org/)
 - [Vivus](https://github.com/maxwellito/vivus)
-- [Ramjet](https://github.com/Rich-Harris/ramjet)
 
 #### Building / Contributing
 
