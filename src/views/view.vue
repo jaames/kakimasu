@@ -2,17 +2,14 @@
   <div class="modal__frame" @click.self="close">
     <div class="modal">
       <div class="modal__head">
-        {{ char.romaji }}
+        <h5 class="modal__title">{{ char.romaji }}</h5>
+        <router-link class="modal__close" :to="{name: 'index'}"><i class="icon icon--close"></i></router-link>
       </div>
       <div class="modal__body">
         <kana ref="kana" :character="char" animatable="true"></kana>
         <div class="modal__arrows">
-          <button @click="openPrevItem" v-show="hasPrevItem" class="arrow arrow--left">
-            <i class="icon icon--leftArrow"></i>
-          </button>
-          <button @click="openNextItem" v-show="hasNextItem" class="arrow arrow--right">
-            <i class="icon icon--rightArrow"></i>
-          </button>
+          <router-link v-if="prev" class="arrow arrow--left" :to="prev"><i class="icon icon--leftArrow"></i></router-link>
+          <router-link v-if="next" class="arrow arrow--right" :to="next"><i class="icon icon--rightArrow"></i></router-link>
         </div>
       </div>
       <div class="modal__foot">
@@ -43,7 +40,7 @@
     },
     methods: {
       error404: function () {
-        this.$router.replace("/");
+        this.$router.push({name: "error404"});
         return false;
       },
       close: function () {
@@ -54,41 +51,28 @@
           }
         });
       },
-      open: function (char) {
-        this.$router.replace({
-          name: "viewCharacter",
-          params: {
-            charset: this.$route.params.charset,
-            character: char.romaji
-          }
-        });
-      },
-      openNextItem: function () {
-        this.open(this.char.nextItem);
-      },
-      openPrevItem: function () {
-        this.open(this.char.prevItem);
-      },
       togglePlay: function () {
         this.$refs.kana.togglePlay();
-        this.isPlaying = this.$refs.kana.isPlaying;
       }
     },
     computed: {
       char: function () {
         var params = this.$route.params;
-        var charset = this.charset;
-        var char = charset.filter((item) => {
+        var char = this.charset.filter((item) => {
           return item.romaji === params.character;
         });
         if (char.length === 0) return this.error404();
         return char[0];
       },
-      hasNextItem: function () {
-        return this.char.nextItem ? true : false;
+      next: function () {
+        var params = this.$route.params;
+        var nextItem = this.char.nextItem;
+        return nextItem ? {name: "viewCharacter", params: {charset: params.charset, character: nextItem.romaji}} : false;
       },
-      hasPrevItem: function () {
-        return this.char.prevItem ? true : false;
+      prev: function () {
+        var params = this.$route.params;
+        var prevItem = this.char.prevItem;
+        return prevItem ? {name: "viewCharacter", params: {charset: params.charset, character: prevItem.romaji}} : false;
       },
       charset: function () {
         return charsets[this.$route.params.charset];
@@ -97,6 +81,14 @@
     mounted: function () {
       doc.classList.add("is-under-modal");
       doc.setAttribute("scroll", "no");
+      var vm = this;
+      var kana = this.$refs.kana;
+      kana.$on("animationStart", function () {
+        vm.isPlaying = true;
+      });
+      kana.$on("animationStop", function () {
+        vm.isPlaying = false;
+      });
     },
     beforeDestroy: function () {
       doc.classList.remove("is-under-modal");
@@ -110,11 +102,20 @@
   @import "../scss/foundation.scss";
 
   .modal {
-    width: 380px;
+    width: 312px;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate3d(-50%, -50%, 0);
+    @include breakpoint(medium) {
+      width: 380px;
+    }
+  }
+
+  .modal .kana__svg {
+    width: 90%;
+    height: 90%;
+    margin: 0 auto;
   }
 
   .modal__frame {
@@ -126,11 +127,42 @@
     right: 0;
     bottom: 0;
     background-color: rgba($color-secondary-dark, 0.85);
+
+    &.modal__frame--clear {
+      pointer-events: none;
+      background-color: none;
+      background: none;
+    }
+
   }
 
   .modal__head {
-    text-align: center;
     font-size: 2.5rem;
+    position: relative;
+    text-align: center;
+    @include clearfix();
+  }
+
+  .modal__title {
+    font-size: inherit;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .modal__subtitle {
+    display: block;
+    font-size: 1rem;
+  }
+
+  .modal__close {
+    padding: 0 12px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: inline-block;
   }
 
   .modal__body {
@@ -139,6 +171,7 @@
   }
 
   .modal__foot {
+    margin-top: 1rem;
     text-align: center;
     display: block;
   }

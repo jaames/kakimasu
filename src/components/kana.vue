@@ -29,12 +29,13 @@
           if(animation.getStatus() === 'end') animation.reset();
           animation.play();
           this.isPlaying = true;
+          this.$emit("animationStart");
         }
       },
       pause: function () {
-        var animation = this.animation;
-        if (animation) animation.stop();
+        if (this.animation) this.animation.stop();
         this.isPlaying = false;
+        this.$emit("animationStop");
       },
       togglePlay: function () {
         var fn = this.isPlaying ? this.pause : this.play;
@@ -61,11 +62,12 @@
         // when the animation finishes, set isPlaying to false
         animation.callback = function () {
           this.isPlaying = false;
+          this.$emit("animationStop");
         }.bind(this);
         // if the character changes, re-init the animation
         this.$watch('character', function () {
-          animation.init();
-          animation.finish();
+          this.animation.init();
+          this.animation.finish();
         });
       }
     },
@@ -88,12 +90,11 @@
   .kana__label {
     color: $body-font-color;
     font-weight: bold;
-    font-size: 1.75rem;
+    font-size: 1.25rem;
     text-align: center;
-  }
-
-  .modal .kana__svg {
-    margin: 0;
+    @include breakpoint(medium) {
+      font-size: 1.75rem;
+    };
   }
 
 </style>

@@ -10,7 +10,7 @@ $body-font-color: $white;
 $body-font-family: 'Poppins', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $header-font-family: $body-font-family;
 
-$global-radius: 6px;
+$global-radius: 21px;
 $button-background: $color-primary;
 // "~" refers to the node_modules directory -- that's a neet trick to remember c:
 @import "~foundation-sites/scss/foundation";

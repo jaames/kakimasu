@@ -22,8 +22,13 @@
         return this.$route.params.charset;
       },
       charsetItems: function () {
-        return charsets[this.$route.params.charset];
+        var charsetId = this.$route.params.charset;
+        return charsets[charsetId];
       }
     },
+    mounted: function () {
+      // if the charset isn't recognised, push to the error 404 page
+      if (!charsets.hasOwnProperty(this.charsetId)) this.$router.push({name: "error404"});
+    }
   }
 </script>

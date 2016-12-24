@@ -2,8 +2,12 @@
   <div>
     <nav class="navbar">
       <div class="wrap">
-        <h1 class="navbar__title">kakimasu</h1>
-        <dropdown :items="dropdownItems" :selectedItem="$route.params.charset"></dropdown>
+        <h1 class="navbar__title">
+          <router-link to="/">kakimasu</router-link>
+        </h1>
+        <div class="navbar__right">
+          <dropdown :items="dropdownItems" :selected="dropdownSelection"></dropdown>
+        </div>
       </div>
     </nav>
     <div class="wrap" id="app">
@@ -19,6 +23,7 @@
   // import router views
   import index from "./index.vue";
   import view from "./view.vue";
+  import error404 from "./404.vue";
 
   import dropdown from "../components/dropdown.vue";
 
@@ -35,6 +40,11 @@
         redirect: '/hiragana'
       },
       {
+        path: "/404",
+        name: "error404",
+        component: error404
+      },
+      {
         path: "/:charset",
         name: "index",
         component: index,
@@ -45,10 +55,6 @@
             component: view,
           }
         ]
-      },
-      {
-        path: "*",
-        component: index
       },
     ]
   });
@@ -74,6 +80,14 @@
 
       return {
         dropdownItems
+      }
+    },
+    computed: {
+      dropdownSelection: function () {
+        var params = this.$route.params;
+        return this.dropdownItems.filter(function (item) {
+          return item.label === params.charset;
+        })[0];
       }
     }
   };

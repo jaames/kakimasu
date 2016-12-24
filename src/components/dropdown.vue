@@ -1,7 +1,7 @@
 <template>
-  <div class="dropdown">
+  <div v-if="selectedItem" class="dropdown">
     <div class="dropdown__button">
-      <a ref="button" @click="toggle">{{selected.label}}<i class="icon icon--dropdown"></i></a>
+      <a ref="button" @click="toggle">{{selectedItem.label}}<i class="icon icon--dropdown"></i></a>
       <ul v-show="isOpen" class="dropdown__menu">
         <li v-for="item in items" class="dropdown__menu__item"><a @click="select(item)">{{item.label}}</a></li>
       </ul>
@@ -10,17 +10,11 @@
 </template>
 
 <script>
-
   module.exports = {
-    props: ["items", "selectedItem"],
+    props: ["items", "selected"],
     data: function () {
-      var selected = this.items.filter((item) => {
-        return item.label == this.selectedItem;
-      });
-
       return {
         isOpen: false,
-        selected: selected[0]
       };
     },
     methods: {
@@ -41,7 +35,13 @@
       },
       select: function (item) {
         this.$router.push({name: item.pathName, params: item.pathParams});
-        this.selected = item;
+        this.selectedItem = item;
+        this.$emit("selectionChange");
+      }
+    },
+    computed: {
+      selectedItem: function () {
+        return this.selected;
       }
     }
   }
@@ -50,35 +50,51 @@
 <style lang="scss">
   @import "../scss/foundation.scss";
 
+  .dropdown {
+    overflow: visible;
+    position: relative;
+  }
+
   .dropdown__button {
-    font-size: 1.25rem;
-    border-radius: 21px;
+    font-size: 1rem;
+    border-radius: $global-radius;
     background: $white;
     color: $color-primary;
-    padding: 0 24px;
-    height: 42px;
-    line-height: 42px;
-    vertical-align: middle;
-    display: inline-block;
-    position: relative;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 12px;
+    text-align: center;
+    box-shadow: 0 2px 0 1px lighten($color-secondary, 12);
+
+    @include breakpoint(medium) {
+      font-size: 1.25em;
+      padding: 0 24px;
+      height: 42px;
+      line-height: 42px;
+    }
 
     & .icon {
       pointer-events: none;
     }
-
   }
 
   .dropdown__menu {
-    border-radius: 21px;
+    border-radius: $global-radius;
     background: $white;
-    box-shadow: 0 2px 0 1px lighten($color-secondary, 12), 0 2px 4px 0px rgba($color-secondary-dark, 0.8);
+    box-shadow: 0 2px 0 1px lighten($color-secondary, 12), 0 4px 4px 0px rgba($color-secondary-dark, 0.45);
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    padding: 3px 12px;
+    margin: 0 50%;
+    transform: translateX(50%);
     position: absolute;
-    top: 56px;
+    font-size: 1rem;
+    top: 54px;
     right: 0;
-    left: 0;
+    z-index: 1;
+
+    @include breakpoint(medium) {
+      font-size: 1.25rem;
+    }
 
     &::before {
       position: absolute;
@@ -93,9 +109,16 @@
 
   .dropdown__menu__item {
     text-align: center;
-    font-size: 1.25rem;
-    line-height: 48px;
+    line-height: 42px;
+    padding: 0;
     color: $color-primary;
+    @include breakpoint(medium) {
+      padding: 3px 12px;
+    }
+  }
+
+  .dropdown__menu__item:nth-child(n+2) {
+    border-top: 1px solid lighten($color-secondary, 12);
   }
 
 </style>
