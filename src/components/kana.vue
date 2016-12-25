@@ -82,7 +82,7 @@
     display: block;
   	fill: none;
     stroke: $color-primary;
-    stroke-width: 14px;
+    stroke-width: 16px;
     stroke-linecap: round;
     stroke-linejoin: round;
   }

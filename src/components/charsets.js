@@ -1,6 +1,6 @@
 // import charset JSON files and parse into opjects
-import hiragana from "../charsets/hiragana.json";
-import katakana from "../charsets/katakana.json";
+import hiragana from "../charsets/hiragana/compiled.json";
+import katakana from "../charsets/katakana/compiled.json";
 
 var charsets = {
   hiragana,
@@ -9,7 +9,7 @@ var charsets = {
 
 var findItemById = function (set, id) {
   var ret = set.filter((item) => {
-    return item.id === id;
+    return item.romaji === id;
   });
   return ret.length > 0 ? ret[0] : null;
 };
@@ -19,8 +19,8 @@ for (var setId in charsets) {
   if (charsets.hasOwnProperty(setId)) {
     var set = charsets[setId];
     charsets[setId] = set.map((item, index, arr) => {
-      item.prevItem = findItemById(set, item.prev || (arr[index - 1] ? arr[index - 1].id : false));
-      item.nextItem = findItemById(set, item.next || (arr[index + 1] ? arr[index + 1].id : false));
+      item.prevItem = findItemById(set, item.prev || (arr[index - 1] ? arr[index - 1].romaji : false));
+      item.nextItem = findItemById(set, item.next || (arr[index + 1] ? arr[index + 1].romaji : false));
       return item;
     });
   }

@@ -1,0 +1,207 @@
+[
+    {
+        "romaji": "a",
+        "timings": [40, 60, 130]
+    },
+    {
+        "romaji": "i",
+        "timings": [60, 40]
+    },
+    {
+        "romaji": "u",
+        "timings": [30, 80]
+    },
+    {
+        "romaji": "e",
+        "timings": [30, 130]
+    },
+    {
+        "romaji": "o",
+        "timings": [30, 100, 15]
+    },
+    {
+        "romaji": "ka",
+        "timings": [60, 40, 20]
+    },
+    {
+        "romaji": "ki",
+        "timings": [40, 40, 120]
+    },
+    {
+        "romaji": "ku",
+        "timings": [70]
+    },
+    {
+        "romaji": "ke",
+        "timings": [50, 30, 50]
+    },
+    {
+        "romaji": "ko",
+        "timings": [50, 60]
+    },
+    {
+        "romaji": "sa",
+        "timings": [40, 120]
+    },
+    {
+        "romaji": "shi",
+        "timings": [100]
+    },
+    {
+        "romaji": "su",
+        "timings": [30, 100, 20]
+    },
+    {
+        "romaji": "se",
+        "timings": [50, 30, 70]
+    },
+    {
+        "romaji": "so",
+        "timings": [130]
+    },
+    {
+        "romaji": "ta",
+        "timings": [20, 50, 20, 30]
+    },
+    {
+        "romaji": "chi",
+        "timings": [50, 120]
+    },
+    {
+        "romaji": "tsu",
+        "timings": [100]
+    },
+    {
+        "romaji": "te",
+        "timings": [110]
+    },
+    {
+        "romaji": "to",
+        "timings": [15, 80]
+    },
+    {
+        "romaji": "na",
+        "timings": [30, 50, 20, 80]
+    },
+    {
+        "romaji": "ni",
+        "timings": [50, 30, 30]
+    },
+    {
+        "romaji": "nu",
+        "timings": [40, 120]
+    },
+    {
+        "romaji": "ne",
+        "timings": [50, 130]
+    },
+    {
+        "romaji": "no",
+        "timings": [110]
+    },
+    {
+        "romaji": "ha",
+        "timings": [50, 20, 90]
+    },
+    {
+        "romaji": "hi",
+        "timings": [120]
+    },
+    {
+        "romaji": "fu",
+        "timings": [20, 40, 20, 20]
+    },
+    {
+        "romaji": "he",
+        "timings": [80]
+    },
+    {
+        "romaji": "ho",
+        "timings": [50, 40, 40, 90]
+    },
+    {
+        "romaji": "ma",
+        "timings": [50, 50, 90]
+    },
+    {
+        "romaji": "mi",
+        "timings": [120, 30]
+    },
+    {
+        "romaji": "mu",
+        "timings": [20, 130, 20]
+    },
+    {
+        "romaji": "me",
+        "timings": [50, 120]
+    },
+    {
+        "romaji": "mo",
+        "timings": [80, 30, 30]
+    },
+    {
+        "romaji": "ya",
+        "timings": [60, 15, 50],
+        "next": "yu"
+    },
+    {
+        "spacer": true
+    },
+    {
+        "romaji": "yu",
+        "timings": [100, 40],
+        "prev": "ya",
+        "next": "yo"
+    },
+    {
+        "spacer": true
+    },
+    {
+        "romaji": "yo",
+        "timings": [100, 20],
+        "prev": "yu"
+    },
+    {
+        "romaji": "ra",
+        "timings": [20, 100]
+    },
+    {
+        "romaji": "ri",
+        "timings": [30, 60]
+    },
+    {
+        "romaji": "ru",
+        "timings": [120]
+    },
+    {
+        "romaji": "re",
+        "timings": [40, 100]
+    },
+    {
+        "romaji": "ro",
+        "timings": [110]
+    },
+    {
+        "romaji": "wa",
+        "timings": [50, 100],
+        "next": "wo"
+    },
+    {
+        "spacer": true
+    },
+    {
+        "spacer": true
+    },
+    {
+        "spacer": true
+    },
+    {
+        "romaji": "wo",
+        "timings": [40, 80, 60],
+        "prev": "wa"
+    },
+    {
+        "romaji": "n",
+        "timings": [100]
+    }
+]
