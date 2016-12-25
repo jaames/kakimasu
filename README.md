@@ -2,44 +2,43 @@
 ###### learn how to write Japanese kana
 ___
 
-When I started to learn Japanese, I had the most difficulty with the writing system. Japanese uses a mix of two phonetic alphabets (hiragana and katakana), and a few thousand kanji, which are somewhat pictographic. You'll be forgiven if you think that sounds rather overwhelming. (':
+When I started to learn Japanese, I had the most difficulty with the writing system. Japanese uses a mix of two phonetic alphabets (called "Hiragana" and "Katakana") and "Kanji", which are the more complex characters people usually associate with Asian languages.
 
-I wanted to build an interesting way to learn how to write Japanese kana, utilizing modern web technology -- something that I feel other Japanese learning resources are yet to make use of.
+I wanted to build an interesting way to learn how to write Japanese, utilizing modern web technology -- something that I feel other Japanese learning resources are yet to make use of.
 
-For now kakimasu only has hiragana and katakana, but I intend to keep working on improving and adding to it!
+For now, Kakimasu only has Hiragana and Katakana characters, however I plan to add basic level Kanji in the future, along with other features. (:
 
-#### Roadmap:
+#### Third-party Libraries Used:
 
-###### Completed:
-
- - [x] Added [katakana](https://en.wikipedia.org/wiki/Katakana) character set
- - [x] Added play/pause toggle for animation playback
- - [x] Make it more obvious that certain sounds aren't present in the Japanese language and they're not just missing because of some bug
- - [x] Keyboard navigation (left/right = prev/next items and spacebar = play/pause)
-
-###### Upcoming:
-
- - [ ] Do proper [feature detection](http://responsivenews.co.uk/post/18948466399/cutting-the-mustard) and display a message or something if a browser is not supported
- - [ ] Tweak character animation timings and svgs to get them juuust right
- - [ ] Add option to change playback speed
-
-###### Future plans:
-
- - [ ] Add level 1 [kanji](https://en.wikipedia.org/wiki/Kanji) character set
- - [ ] Add a 'test' feature, i.e. show random characters and users have to guess what they are
- - [ ] Add basic vocabulary words for each character
- - [ ] Find someone that can provide voice recordings of the character pronunciations?
-
-
-#### Third-party JS Libraries Used:
 - [Vue JS](http://vuejs.org/)
+- [vue-router](https://github.com/vuejs/vue-router)
 - [Vivus](https://github.com/maxwellito/vivus)
 
 #### Building / Contributing
 
-Clone this repo to your local machine:
+Kakimasu is built using [vbuild](https://github.com/egoist/vbuild), which must be installed globally with NPM before building:
+
 ```bash
-git clone https://github.com/jaames/kakimasu.git
+npm install -g vbuild
 ```
 
-kakimasu is built using [vbuild](https://github.com/egoist/vbuild), which must be [installed globally with npm](https://github.com/egoist/vbuild#quick-start) before building.
+```bash
+# To get started, clone this repo to your local machine
+git clone https://github.com/jaames/kakimasu.git
+
+# Make sure you've navigated into the project folder before then next steps
+
+# Install the Node modules required
+npm install
+
+# Make whatever changes you want to make to the source code in src/
+
+# Run the dev build script,
+# This will compile all the files and start a development preview server on port 4000
+# (Check out the vbuild documentation for more details!)
+npm run dev
+
+# If you wish to compile a "production" build,
+# This will compile everything in production mode to the dist/ directory
+npm run build
+```
