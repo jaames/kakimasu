@@ -11,8 +11,9 @@ For now, Kakimasu only has Hiragana and Katakana characters, however I plan to a
 #### Third-party Libraries Used:
 
 - [Vue JS](http://vuejs.org/)
-- [vue-router](https://github.com/vuejs/vue-router)
 - [Vivus](https://github.com/maxwellito/vivus)
+- [vue-router](https://github.com/vuejs/vue-router)
+- [vue-ga](https://github.com/egoist/vue-ga)
 
 #### Building / Contributing
 

@@ -9,6 +9,7 @@
     "foundation-sites": "^6.3.0",
     "vivus": "^0.4.0",
     "vue": "2.1.5",
+    "vue-ga": "^1.0.0",
     "vue-router": "^2.1.1"
   },
   "devDependencies": {

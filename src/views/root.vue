@@ -59,6 +59,14 @@
     ]
   });
 
+  // set up google analytics
+  import ga from "vue-ga";
+  import config from "../../vue.config.js";
+  var gaConfig = config.ga || config.analytics || config.googleAnalytics || null;
+  if (gaConfig) {
+    ga(router, gaConfig);
+  }
+
   module.exports = {
     router,
     components: {
