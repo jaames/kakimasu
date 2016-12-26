@@ -12,35 +12,35 @@
 <script>
   module.exports = {
     props: ["items", "selected"],
-    data: function () {
+    data: () => {
       return {
         isOpen: false,
       };
     },
     methods: {
-      bodyClickHandler: function (e) {
+      bodyClickHandler(e) {
         if (e.target !== this.$refs.button) this.hide();
       },
-      show: function () {
+      show() {
         this.isOpen = true;
         document.body.addEventListener("click", this.bodyClickHandler, false);
       },
-      hide: function (e) {
+      hide(e) {
         this.isOpen = false;
         document.body.removeEventListener("click", this.bodyClickHandler);
       },
-      toggle: function () {
+      toggle() {
         var fn = this.isOpen ? this.hide : this.show;
         fn();
       },
-      select: function (item) {
+      select(item) {
         this.$router.push({name: item.pathName, params: item.pathParams});
         this.selectedItem = item;
         this.$emit("selectionChange");
       }
     },
     computed: {
-      selectedItem: function () {
+      selectedItem () {
         return this.selected;
       }
     }

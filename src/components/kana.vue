@@ -23,7 +23,7 @@
       }
     },
     methods: {
-      play: function () {
+      play() {
         var animation = this.animation;
         if (animation) {
           if(animation.getStatus() === 'end') animation.reset();
@@ -32,21 +32,21 @@
           this.$emit("animationStart");
         }
       },
-      pause: function () {
+      pause() {
         if (this.animation) this.animation.stop();
         this.isPlaying = false;
         this.$emit("animationStop");
       },
-      togglePlay: function () {
+      togglePlay() {
         var fn = this.isPlaying ? this.pause : this.play;
         fn();
       },
-      getSvgPaths: function () {
+      getSvgPaths() {
         var svg = this.$refs.svg;
         return svg.getElementsByTagName("path");
       }
     },
-    mounted: function () {
+    mounted() {
       if (this.animatable) {
         // set up the stroke animation
         this.animation = new Vivus(this.$refs.svg, {
@@ -60,10 +60,10 @@
         // set the default state to completion
         animation.finish();
         // when the animation finishes, set isPlaying to false
-        animation.callback = function () {
+        animation.callback = () => {
           this.isPlaying = false;
           this.$emit("animationStop");
-        }.bind(this);
+        };
         // if the character changes, re-init the animation
         this.$watch('character', function () {
           this.animation.init();

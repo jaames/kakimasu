@@ -63,9 +63,7 @@
   import ga from "vue-ga";
   import config from "../../vue.config.js";
   var gaConfig = config.ga || config.analytics || config.googleAnalytics || null;
-  if (gaConfig) {
-    ga(router, gaConfig);
-  }
+  if (gaConfig) ga(router, gaConfig);
 
   module.exports = {
     router,
@@ -91,7 +89,7 @@
       }
     },
     computed: {
-      dropdownSelection: function () {
+      dropdownSelection() {
         var params = this.$route.params;
         return this.dropdownItems.filter(function (item) {
           return item.label === params.charset;

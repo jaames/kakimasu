@@ -18,15 +18,15 @@
       grid
     },
     computed: {
-      charsetId: function () {
+      charsetId() {
         return this.$route.params.charset;
       },
-      charsetItems: function () {
+      charsetItems() {
         var charsetId = this.$route.params.charset;
         return charsets[charsetId];
       }
     },
-    mounted: function () {
+    mounted() {
       // if the charset isn't recognised, push to the error 404 page
       if (!charsets.hasOwnProperty(this.charsetId)) this.$router.push({name: "error404"});
     }

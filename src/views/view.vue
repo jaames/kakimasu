@@ -39,11 +39,11 @@
       }
     },
     methods: {
-      error404: function () {
+      error404() {
         this.$router.push({name: "error404"});
         return false;
       },
-      close: function () {
+      close() {
         this.$router.replace({
           name: "index",
           params: {
@@ -51,12 +51,12 @@
           }
         });
       },
-      togglePlay: function () {
+      togglePlay() {
         this.$refs.kana.togglePlay();
       }
     },
     computed: {
-      char: function () {
+      char() {
         var params = this.$route.params;
         var char = this.charset.filter((item) => {
           return item.romaji === params.character;
@@ -64,33 +64,32 @@
         if (char.length === 0) return this.error404();
         return char[0];
       },
-      next: function () {
+      next() {
         var params = this.$route.params;
         var nextItem = this.char.nextItem;
         return nextItem ? {name: "viewCharacter", params: {charset: params.charset, character: nextItem.romaji}} : false;
       },
-      prev: function () {
+      prev() {
         var params = this.$route.params;
         var prevItem = this.char.prevItem;
         return prevItem ? {name: "viewCharacter", params: {charset: params.charset, character: prevItem.romaji}} : false;
       },
-      charset: function () {
+      charset() {
         return charsets[this.$route.params.charset];
       },
     },
-    mounted: function () {
+    mounted() {
       doc.classList.add("is-under-modal");
       doc.setAttribute("scroll", "no");
-      var vm = this;
       var kana = this.$refs.kana;
-      kana.$on("animationStart", function () {
-        vm.isPlaying = true;
+      kana.$on("animationStart", () => {
+        this.isPlaying = true;
       });
-      kana.$on("animationStop", function () {
-        vm.isPlaying = false;
+      kana.$on("animationStop", () => {
+        this.isPlaying = false;
       });
     },
-    beforeDestroy: function () {
+    beforeDestroy() {
       doc.classList.remove("is-under-modal");
       doc.removeAttribute("scroll");
     },

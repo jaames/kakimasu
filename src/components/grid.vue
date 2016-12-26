@@ -1,7 +1,7 @@
 <template>
   <ul class="grid">
     <li class="grid__item" v-for="char in characters">
-      <router-link v-if="!char.spacer" router-link :to="'/' + charsetId + '/' + char.romaji">
+      <router-link v-if="!char.spacer" class="kana__link" router-link :to="{name: 'viewCharacter', params: {charset: charsetId, character: char.romaji}}">
         <kana :character="char" label="true"></kana>
       </router-link>
       <div v-else class="spacer"></div>
@@ -18,7 +18,7 @@
       kana
     },
     computed: {
-      charsetId: function () {
+      charsetId() {
         return this.$parent.charsetId;
       }
     }
@@ -60,6 +60,11 @@
       margin-bottom: 3rem;
       padding-left: $grid-gutter-large;
     }
+  }
+
+  .grid .kana__link {
+    display: block;
+    text-decoration: none;
   }
 
   .grid .kana__body {
@@ -106,11 +111,6 @@
       border: 3px dashed $white;
       height: 136px;
     }
-  }
-
-  .grid a {
-    display: block;
-    text-decoration: none;
   }
 
 </style>

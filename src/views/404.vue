@@ -11,16 +11,5 @@
 </template>
 
 <script>
-  import charsets from "../components/charsets.js";
-
-  module.exports = {
-    mounted: function () {
-    }
-  }
+  module.exports = {}
 </script>
-
-<style lang="scss">
-
-  @import "../scss/foundation.scss";
-
-</style>
