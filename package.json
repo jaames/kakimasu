@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "name": "kakimasu",
+  "scripts": {
+    "dev": "vbuild --dev",
+    "build": "vbuild"
+  },
+  "dependencies": {
+    "foundation-sites": "^6.3.0",
+    "vivus": "^0.4.0",
+    "vue": "2.1.5",
+    "vue-ga": "^1.0.0",
+    "vue-router": "^2.1.1"
+  },
+  "devDependencies": {
+    "json-loader": "^0.5.4",
+    "node-sass": "^4.0.0",
+    "sass-loader": "^4.1.0",
+    "vue-loader": "10.0.2",
+    "vue-template-compiler": "2.1.5"
+  }
+}

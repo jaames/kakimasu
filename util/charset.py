@@ -32,7 +32,7 @@ for char in charMap:
 
     if "spacer" in char: continue
 
-    tree = xmlParser.parse(charSetDir + "/svg/" + char["id"] + ".svg")
+    tree = xmlParser.parse(charSetDir + "/svg/" + char["romaji"] + ".svg")
     root = tree.getroot()
 
     pathGroup = root.find("svg:g", ns)[0]

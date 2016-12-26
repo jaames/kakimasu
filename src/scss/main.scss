@@ -1,0 +1,116 @@
+@import "foundation";
+
+@include foundation-global-styles;
+
+a, button {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: $body-font-family;
+}
+
+.wrap {
+  margin: 0 auto;
+  padding: 0 14px;
+  max-width: 312px;
+
+  @include breakpoint(medium) {
+    max-width: 654px;
+  }
+  @include breakpoint(large) {
+    max-width: 960px;
+  }
+}
+
+.button {
+  @include button-style($color-primary, $color-primary, $white);
+  height: 42px;
+  line-height: 42px;
+  box-shadow: 0 3px 0 0 darken($color-primary, 12);
+  outline: 0;
+}
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  content: '';
+  width: 24px;
+  height: 24px;
+  line-height: inherit;
+  background-image: url("../assets/icons.png");
+  background-repeat: no-repeat;
+  background-size: 48px 72px;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: -webkit-transform 0.1s;
+  transition: -webkit-transform 0.1s;
+  transition: transform 0.1s;
+  transition: transform 0.1s, -webkit-transform 0.1s
+}
+
+.icon.icon--leftArrow  { background-position: 0px 0px   }
+.icon.icon--rightArrow { background-position: -24px 0px }
+.icon.icon--play       { background-position: 0px -24px }
+.icon.icon--pause { background-position: -24px -24px }
+.icon.icon--close { background-position: 0px -48px }
+.icon.icon--dropdown { background-position: -24px -48px }
+
+.icon:hover {
+    cursor: pointer;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1)
+}
+
+.icon.icon--play:hover,
+.icon.icon--pause:hover {
+  -webkit-transform: none;
+  transform: none
+}
+
+.navbar {
+  line-height: 4rem;
+  margin-bottom: 2rem;
+  @include breakpoint(medium) {
+    margin: 0;
+    line-height: 9rem;
+    height: 9rem;
+  }
+}
+
+.navbar .wrap {
+  @include clearfix();
+}
+
+.navbar__title {
+  font-size: 1.5rem;
+  float: left;
+  margin: 0;
+  @include breakpoint(medium) {
+    font-size: 2.5rem;
+  }
+}
+
+.navbar__right {
+  float: right;
+  .dropdown {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.is-under-modal {
+  overflow: hidden;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .25s ease;
+}
+.fade-enter {
+  opacity: 0;
+}
+.fade-leave-active {
+  opacity: 0;
+}
