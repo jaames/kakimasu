@@ -2,10 +2,10 @@
   <div v-if="selectedItem" class="dropdown">
     <div class="dropdown__button">
       <a ref="button" @click="toggle">{{selectedItem.label}}<i class="icon icon--dropdown"></i></a>
-      <ul v-show="isOpen" class="dropdown__menu">
-        <li v-for="item in items" class="dropdown__menu__item"><a @click="select(item)">{{item.label}}</a></li>
-      </ul>
     </div>
+    <ul v-show="isOpen" class="dropdown__menu">
+      <li v-for="item in items" class="dropdown__menu__item"><a @click="select(item)">{{item.label}}</a></li>
+    </ul>
   </div>
 </template>
 
@@ -25,7 +25,7 @@
         this.isOpen = true;
         document.body.addEventListener("click", this.bodyClickHandler, false);
       },
-      hide(e) {
+      hide() {
         this.isOpen = false;
         document.body.removeEventListener("click", this.bodyClickHandler);
       },
@@ -71,6 +71,11 @@
       padding: 0 24px;
       height: 42px;
       line-height: 42px;
+    }
+
+    & a {
+      display: block;
+      line-height: inherit;
     }
 
     & .icon {
