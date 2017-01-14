@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'kakimasu',
+  title: "Kakimasu",
   resolve: true,
   template: "src/templates/index.html",
   mergeConfig: {

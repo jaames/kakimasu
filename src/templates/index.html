@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta name="application-name" content="<%= htmlWebpackPlugin.options.title %>">
+    <meta name="description" content="Learn to write Japanese Hiragana and Katakana!">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="@rakujira">
+    <meta property="og:type" content="website">
+    <meta property="og:url" name="twitter:url" content="https://kakimasu.rakujira.jp">
+    <meta property="og:title" name="twitter:title" itemprop="name" content="<%= htmlWebpackPlugin.options.title %>">
+    <meta property="og:description" name="twitter:description" itemprop="description" content="Learn to write Japanese Hiragana and Katakana!">
+    <meta property="og:image" name="twitter:image" content="https://kakimasu.rakujira.jp/assets/meta-image.png">
+    <meta property="og:site_name" content="<%= htmlWebpackPlugin.options.title %>">
+    <meta property="og:locale" content="en_US">
+    <meta name="google" value="notranslate">
+    <meta name="google" content="nositelinkssearchbox">
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
     <script type="text/javascript">
       WebFont.load({
