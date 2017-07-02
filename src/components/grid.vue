@@ -12,7 +12,7 @@
 <script>
   import kana from "./kana.vue";
 
-  module.exports = {
+  export default {
     props: ["characters"],
     components: {
       kana
@@ -28,7 +28,6 @@
 <style lang="scss">
 
   @import "../scss/foundation.scss";
-
 
   $grid-gutter-small: 6px;
   $grid-gutter-medium: 2rem;
@@ -71,15 +70,13 @@
     @include clearfix();
     background: $white;
     border-radius: 50%;
-    @include breakpoint(large) {
-      box-shadow: 0 2px 0 1px lighten($color-secondary, 12);
-    }
+    box-shadow: 0 2px 0 0 mix($white, $color-secondary);
   }
 
   .grid .kana__svg {
-    width: 40px;
-    height: 40px;
-    margin: 6px auto;
+    width: 32px;
+    height: 32px;
+    margin: 10px auto;
     transform: scale(1);
     transition: transform 0.2s ease;
     z-index: 0;

@@ -17,12 +17,6 @@ For now, Kakimasu only has Hiragana and Katakana characters, however I plan to a
 
 #### Building / Contributing
 
-Kakimasu is built using [vbuild](https://github.com/egoist/vbuild), which must be installed globally with NPM before building:
-
-```bash
-npm install -g vbuild
-```
-
 ```bash
 # To get started, clone this repo to your local machine
 git clone https://github.com/jaames/kakimasu.git

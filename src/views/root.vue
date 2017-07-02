@@ -2,10 +2,7 @@
   <div>
     <nav class="navbar">
       <div class="wrap">
-        <h1 class="navbar__title">
-          <router-link to="/">kakimasu</router-link>
-        </h1>
-        <div class="navbar__right">
+        <div class="navbar__left">
           <dropdown :items="dropdownItems" :selected="dropdownSelection"></dropdown>
         </div>
       </div>
@@ -17,20 +14,16 @@
 </template>
 
 <script>
-  // import charset
+  import vue from "vue";
+  import vueRouter from "vue-router";
+  import ga from "vue-ga";
   import charsets from "../components/charsets.js";
-
-  // import router views
   import index from "./index.vue";
   import view from "./view.vue";
   import error404 from "./404.vue";
-
   import dropdown from "../components/dropdown.vue";
 
-  // set up a router
-  import vue from "vue";
-  import vueRouter from "vue-router";
-  vue.use(vueRouter);
+  import config from "../../config.private.js";
 
   var router = new vueRouter({
     mode: "history",
@@ -59,13 +52,10 @@
     ]
   });
 
-  // set up google analytics
-  import ga from "vue-ga";
-  import config from "../../vue.config.js";
-  var gaConfig = config.ga || config.analytics || config.googleAnalytics || null;
+  var gaConfig = config.googleAnalytics || null;
   if (gaConfig) ga(router, gaConfig);
 
-  module.exports = {
+  export default {
     router,
     components: {
       dropdown
