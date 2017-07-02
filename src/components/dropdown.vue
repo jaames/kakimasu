@@ -10,7 +10,7 @@
 </template>
 
 <script>
-  module.exports = {
+  export default {
     props: ["items", "selected"],
     data: () => {
       return {

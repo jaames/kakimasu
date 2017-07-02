@@ -14,7 +14,7 @@
 <script>
   import Vivus from 'vivus'
 
-  module.exports = {
+  export default {
     props: ["character", "animatable", "label"],
     data: () => {
       return {

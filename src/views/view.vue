@@ -29,7 +29,7 @@
   // component imports
   import kana from "../components/kana.vue";
 
-  module.exports = {
+  export default {
     components: {
       kana
     },

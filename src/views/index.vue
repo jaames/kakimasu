@@ -13,7 +13,7 @@
   // component imports
   import grid from "../components/grid.vue";
 
-  module.exports = {
+  export default {
     components: {
       grid
     },

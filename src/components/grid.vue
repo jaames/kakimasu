@@ -12,7 +12,7 @@
 <script>
   import kana from "./kana.vue";
 
-  module.exports = {
+  export default {
     props: ["characters"],
     components: {
       kana
