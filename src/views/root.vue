@@ -17,20 +17,13 @@
 </template>
 
 <script>
-  // import charset
+  import vue from "vue";
+  import vueRouter from "vue-router";
   import charsets from "../components/charsets.js";
-
-  // import router views
   import index from "./index.vue";
   import view from "./view.vue";
   import error404 from "./404.vue";
-
   import dropdown from "../components/dropdown.vue";
-
-  // set up a router
-  import vue from "vue";
-  import vueRouter from "vue-router";
-  vue.use(vueRouter);
 
   var router = new vueRouter({
     mode: "history",

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import Vivus from 'vivus'
+  import Vivus from "vivus";
 
   export default {
     props: ["character", "animatable", "label"],
