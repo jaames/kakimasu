@@ -22,7 +22,8 @@
   import view from "./view.vue";
   import error404 from "./404.vue";
   import dropdown from "../components/dropdown.vue";
-  import config from "../../poi.config.js";
+
+  import config from "../../config.private.js";
 
   var router = new vueRouter({
     mode: "history",
@@ -51,7 +52,7 @@
     ]
   });
 
-  var gaConfig = config.html.googleAnalytics || null;
+  var gaConfig = config.googleAnalytics || null;
   if (gaConfig) ga(router, gaConfig);
 
   export default {

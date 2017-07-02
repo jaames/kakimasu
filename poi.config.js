@@ -1,12 +1,4 @@
-try {
-  var privConfig = require("./config.private.js");
-}
-catch (e) {
-  if (e instanceof Error && e.code === "MODULE_NOT_FOUND")
-    var privConfig = {};
-  else
-    throw e;
-}
+var webpack = require("webpack");
 
 module.exports = {
   resolve: true,
@@ -16,12 +8,20 @@ module.exports = {
     baseURL: "https://kakimasu.rakujira.jp",
     description: "Learn to write Japanese Hiragana and Katakana!",
     creator: "@rakujira",
-    googleAnalytics: privConfig.googleAnalytics || false,
     webfontFamilies: "Poppins:600:latin"
   },
-  mergeConfig: {
-    module: { loaders: [
-      { test: /\.json$/, loader: "json-loader" }
-    ]},
+  webpack(config) {
+    config.module.loaders = [({ test: /\.json$/, loader: "json-loader" })];
+    config.plugins.push(new webpack.BannerPlugin({
+        banner: [
+          "kakimasu.rakujira.jp",
+          "--------------------",
+          "Author: James Daniel (github.com/jaames | rakujira.jp | @rakujira)",
+          "Build hash: [hash]",
+          "Chunk hash: [chunkhash]",
+          "Last updated: " + new Date().toDateString(),
+        ].join("\n")
+      }));
+    return config;
   }
 }
