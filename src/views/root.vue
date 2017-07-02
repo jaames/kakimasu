@@ -19,11 +19,13 @@
 <script>
   import vue from "vue";
   import vueRouter from "vue-router";
+  import ga from "vue-ga";
   import charsets from "../components/charsets.js";
   import index from "./index.vue";
   import view from "./view.vue";
   import error404 from "./404.vue";
   import dropdown from "../components/dropdown.vue";
+  import config from "../../poi.config.js";
 
   var router = new vueRouter({
     mode: "history",
@@ -52,10 +54,7 @@
     ]
   });
 
-  // set up google analytics
-  import ga from "vue-ga";
-  import config from "../../poi.config.js";
-  var gaConfig = config.ga || config.analytics || config.googleAnalytics || null;
+  var gaConfig = config.html.googleAnalytics || null;
   if (gaConfig) ga(router, gaConfig);
 
   export default {
