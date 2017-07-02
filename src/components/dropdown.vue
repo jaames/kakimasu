@@ -64,7 +64,7 @@
     line-height: 32px;
     padding: 0 12px;
     text-align: center;
-    box-shadow: 0 2px 0 1px lighten($color-secondary, 12);
+    box-shadow: 0 2px 0 0px mix($white, $color-secondary);
 
     @include breakpoint(medium) {
       font-size: 1.25em;
@@ -86,15 +86,15 @@
   .dropdown__menu {
     border-radius: $global-radius;
     background: $white;
-    box-shadow: 0 2px 0 1px lighten($color-secondary, 12), 0 4px 4px 0px rgba($color-secondary-dark, 0.45);
+    box-shadow: 0 2px 0 0 mix($white, $color-secondary), 0 4px 4px 0px rgba($color-secondary-dark, 0.45);
     list-style-type: none;
     padding: 3px 12px;
-    margin: 0 50%;
-    transform: translateX(50%);
+    margin: 0;
     position: absolute;
     font-size: 1rem;
-    top: 54px;
+    top: calc(100% + 14px);
     right: 0;
+    left: 0;
     z-index: 1;
 
     @include breakpoint(medium) {
@@ -117,13 +117,6 @@
     line-height: 42px;
     padding: 0;
     color: $color-primary;
-    @include breakpoint(medium) {
-      padding: 3px 12px;
-    }
-  }
-
-  .dropdown__menu__item:nth-child(n+2) {
-    border-top: 1px solid lighten($color-secondary, 12);
   }
 
 </style>

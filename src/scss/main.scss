@@ -71,12 +71,12 @@ button {
 }
 
 .navbar {
-  line-height: 4rem;
-  margin-bottom: 2rem;
+  line-height: 6rem;
+  height: 6rem;
   @include breakpoint(medium) {
     margin: 0;
-    line-height: 9rem;
-    height: 9rem;
+    line-height: 12rem;
+    height: 12rem;
   }
 }
 
@@ -93,13 +93,18 @@ button {
   }
 }
 
-.navbar__right {
-  float: right;
+.navbar__right { float: right; }
+.navbar__left { float: left; }
+
+.navbar__right,
+.navbar__left {
   .dropdown {
     display: inline-block;
     vertical-align: middle;
   }
 }
+
+
 
 .is-under-modal {
   overflow: hidden;

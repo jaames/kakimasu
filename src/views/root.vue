@@ -2,10 +2,7 @@
   <div>
     <nav class="navbar">
       <div class="wrap">
-        <h1 class="navbar__title">
-          <router-link to="/">kakimasu</router-link>
-        </h1>
-        <div class="navbar__right">
+        <div class="navbar__left">
           <dropdown :items="dropdownItems" :selected="dropdownSelection"></dropdown>
         </div>
       </div>
