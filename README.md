@@ -1,8 +1,8 @@
-###    kakimasu
-###### learn how to write Japanese kana
+## kakimasu
+learn how to write Japanese kana
 ___
 
-When I started to learn Japanese, I had the most difficulty with the writing system. Japanese uses a mix of two phonetic alphabets (called "Hiragana" and "Katakana") and "Kanji", which are the more complex characters people usually associate with Asian languages.
+When I started to learn Japanese, I had the most difficulty with the writing system. Japanese uses a mix of two phonetic alphabets (called "Hiragana" and "Katakana") and "Kanji", which are more logographic.
 
 I wanted to build an interesting way to learn how to write Japanese, utilizing modern web technology -- something that I feel other Japanese learning resources are yet to make use of.
 
