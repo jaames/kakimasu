@@ -8,7 +8,11 @@ module.exports = {
     baseURL: "https://kakimasu.rakujira.jp",
     description: "Learn to write Japanese Hiragana and Katakana!",
     creator: "@rakujira",
-    webfontFamilies: "Poppins:600:latin"
+    webfontFamilies: "Poppins:600:latin",
+    meta: {
+      "theme-color": "#88cdf1",
+      "msapplication-navbutton-color": "#88cdf1"
+    }
   },
   webpack(config) {
     config.module.loaders = [({ test: /\.json$/, loader: "json-loader" })];
