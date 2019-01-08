@@ -22,7 +22,7 @@
 </template>
 
 <script>
-  import charsets from "../components/charsets.js";
+  import charsets from "../charsets";
   import kana from "../components/kana.vue";
 
   var doc = document.documentElement;

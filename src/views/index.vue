@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import charsets from "../components/charsets.js";
+  import charsets from "../charsets";
   import grid from "../components/grid.vue";
 
   export default {

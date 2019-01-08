@@ -1,6 +1,6 @@
-// import charset JSON files and parse into opjects
-import hiragana from "../charsets/hiragana/compiled.json";
-import katakana from "../charsets/katakana/compiled.json";
+// import charset JSONs
+import hiragana from "./hiragana/compiled.json";
+import katakana from "./katakana/compiled.json";
 
 var charsets = {
   hiragana,
