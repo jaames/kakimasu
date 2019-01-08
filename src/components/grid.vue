@@ -1,7 +1,7 @@
 <template>
   <ul class="grid">
     <li class="grid__item" v-for="char in characters">
-      <router-link v-if="!char.spacer" class="kana__link" router-link :to="{name: 'viewCharacter', params: {charset: charsetId, character: char.romaji}}">
+      <router-link v-if="!char.spacer" class="kana__link" router-link :to="{name: 'viewCharacter', params: {charset: charsetId}, query: {kana: char.romaji}}">
         <kana :character="char" label="true"></kana>
       </router-link>
       <div v-else class="spacer"></div>

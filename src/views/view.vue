@@ -38,7 +38,7 @@
     },
     methods: {
       error404() {
-        this.$router.push({name: "error404"});
+        this.$router.push({name: "404"});
         return false;
       },
       close() {
@@ -55,9 +55,9 @@
     },
     computed: {
       char() {
-        var params = this.$route.params;
+        var params = this.$route.query;
         var char = this.charset.filter((item) => {
-          return item.romaji === params.character;
+          return item.romaji === params.kana;
         });
         if (char.length === 0) return this.error404();
         return char[0];
@@ -65,12 +65,28 @@
       next() {
         var params = this.$route.params;
         var nextItem = this.char.nextItem;
-        return nextItem ? {name: "viewCharacter", params: {charset: params.charset, character: nextItem.romaji}} : false;
+        return nextItem ? {
+          name: "viewCharacter", 
+          params: {
+            charset: params.charset
+          },
+          query: {
+            kana: nextItem.romaji
+          }
+        } : false;
       },
       prev() {
         var params = this.$route.params;
         var prevItem = this.char.prevItem;
-        return prevItem ? {name: "viewCharacter", params: {charset: params.charset, character: prevItem.romaji}} : false;
+        return prevItem ? {
+          name: "viewCharacter", 
+          params: {
+            charset: params.charset
+          },
+          query: {
+            kana: prevItem.romaji
+          }
+        } : false;
       },
       charset() {
         return charsets[this.$route.params.charset];

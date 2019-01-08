@@ -13,7 +13,7 @@ const router = new Router({
     },
     {
       path: '/404',
-      name: 'error',
+      name: '404',
       component: () => import('./views/404.vue')
     },
     {
@@ -22,7 +22,7 @@ const router = new Router({
       component: () => import('./views/index.vue'),
       children: [
         {
-          path: '/:charset/:character',
+          path: '',
           name: 'viewCharacter',
           component: () => import('./views/view.vue')
         }

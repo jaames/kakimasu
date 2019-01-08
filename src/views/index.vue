@@ -2,14 +2,14 @@
   <div class="page page--index">
     <grid ref="grid" :characters="charsetItems"></grid>
     <transition name="fade">
-      <router-view ref="router-view"></router-view>
+      <router-view></router-view>
     </transition>
   </div>
 </template>
 
 <script>
-  import charsets from "../charsets";
-  import grid from "../components/grid.vue";
+  import charsets from '../charsets';
+  import grid from '../components/grid.vue';
 
   export default {
     components: {
@@ -24,9 +24,14 @@
         return charsets[charsetId];
       }
     },
-    mounted() {
+    created() {
       // if the charset isn't recognised, push to the error 404 page
-      if (!charsets.hasOwnProperty(this.charsetId)) this.$router.push({name: "error404"});
+      if (!charsets.hasOwnProperty(this.charsetId)) {
+        this.$router.push({name: '404'});
+      }
+      if (!this.$route.query.hasOwnProperty('kana')) {
+        this.$router.push({name: 'index'});
+      }
     }
   }
 </script>

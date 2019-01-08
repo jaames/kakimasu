@@ -23,7 +23,8 @@ module.exports = {
         staticRoutes: [
           '/',
           '/hiragana',
-          '/katakana'
+          '/katakana',
+          '/404'
         ]
       }
     }
