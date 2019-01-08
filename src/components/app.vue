@@ -14,51 +14,12 @@
 </template>
 
 <script>
-  import vue from "vue";
-  import vueRouter from "vue-router";
-  import ga from "vue-ga";
-  import charsets from "../components/charsets.js";
-  import index from "./index.vue";
-  import view from "./view.vue";
-  import error404 from "./404.vue";
-  import dropdown from "../components/dropdown.vue";
-
-  import config from "../../config.private.js";
-
-  var router = new vueRouter({
-    mode: "history",
-    routes: [
-      {
-        path: '/',
-        redirect: '/hiragana'
-      },
-      {
-        path: "/404",
-        name: "error404",
-        component: error404
-      },
-      {
-        path: "/:charset",
-        name: "index",
-        component: index,
-        children: [
-          {
-            path: "/:charset/:character",
-            name: "viewCharacter",
-            component: view,
-          }
-        ]
-      },
-    ]
-  });
-
-  var gaConfig = config.googleAnalytics || null;
-  if (gaConfig) ga(router, gaConfig);
+  import charsets from '../charsets';
+  import Dropdown from "../components/dropdown.vue";
 
   export default {
-    router,
     components: {
-      dropdown
+      Dropdown
     },
     data: () => {
       var dropdownItems = [];
@@ -86,9 +47,10 @@
         })[0];
       }
     }
-  };
+  }
 </script>
 
+
 <style lang="scss">
-  @import "../scss/main.scss";
+  @import '../scss/main.scss';
 </style>

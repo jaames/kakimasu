@@ -4,42 +4,34 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title><%= htmlWebpackPlugin.options.title %></title>
-    <meta name="application-name" content="<%= htmlWebpackPlugin.options.title %>">
+    <title><%= html.title %></title>
+    <meta name="application-name" content="<%= html.title %>">
     <meta name="twitter:card" content="summary">
     <meta property="og:type" content="website">
-    <meta property="og:url" name="twitter:url" content="<%= htmlWebpackPlugin.options.baseURL %>">
-    <meta property="og:title" name="twitter:title" itemprop="name" content="<%= htmlWebpackPlugin.options.title %>">
-    <meta property="og:image" name="twitter:image" content="<%= htmlWebpackPlugin.options.baseURL %>/assets/meta-image.png">
-    <meta property="og:site_name" content="<%= htmlWebpackPlugin.options.title %>">
+    <meta property="og:url" name="twitter:url" content="<%= html.baseURL %>">
+    <meta property="og:title" name="twitter:title" itemprop="name" content="<%= html.title %>">
+    <meta property="og:image" name="twitter:image" content="<%= html.baseURL %>/assets/meta-image.png">
+    <meta property="og:site_name" content="<%= html.title %>">
     <meta property="og:locale" content="en_US">
-    <% if (htmlWebpackPlugin.options.creator) { %>
-      <meta name="twitter:creator" content="<%= htmlWebpackPlugin.options.creator %>">
+    <% if (html.creator) { %>
+      <meta name="twitter:creator" content="<%= html.creator %>">
     <% } %>
-    <% if (htmlWebpackPlugin.options.description) { %>
-      <meta property="og:description" name="twitter:description" itemprop="description" content="<%= htmlWebpackPlugin.options.description %>">
-      <meta name="description" content="<%= htmlWebpackPlugin.options.description %>"/>
+    <% if (html.description) { %>
+      <meta property="og:description" name="twitter:description" itemprop="description" content="<%= html.description %>">
+      <meta name="description" content="<%= html.description %>"/>
     <% } %>
     <meta name="google" value="notranslate">
     <meta name="google" content="nositelinkssearchbox">
-    <% if (htmlWebpackPlugin.options.webfontFamilies) { %>
+    <% if (html.webfontFamilies) { %>
       <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
       <script type="text/javascript">
         WebFont.load({
           google: {
-            families: ["<%= htmlWebpackPlugin.options.webfontFamilies %>"]
+            families: ["<%= html.webfontFamilies %>"]
           }
         });
       </script>
     <% } %>
-
-    <% for (var chunk of webpack.chunks) {
-      for (var file of chunk.files) {
-        if (file.match(/\.(js|css)$/)) { %>
-          <link rel="<%= chunk.initial ? 'preload' : 'prefetch' %>" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/) ? 'style' : 'script' %>">
-        <% }
-      }
-    } %>
   </head>
   <body>
     <noscript>

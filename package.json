@@ -2,19 +2,22 @@
   "private": true,
   "name": "kakimasu",
   "scripts": {
-    "dev": "poi src/index.js",
-    "build": "poi build src/index.js"
+    "start": "npm run dev",
+    "dev": "poi --serve",
+    "build": "poi --prod"
   },
   "dependencies": {
     "foundation-sites": "^6.3.0",
     "vivus": "^0.4.0",
-    "vue-ga": "^1.0.0",
-    "vue-router": "^2.1.1"
+    "vue": "^2.5.21",
+    "vue-ga": "^1.0.0"
   },
   "devDependencies": {
-    "json-loader": "^0.5.4",
+    "@poi/plugin-vue-static": "^12.0.5",
     "node-sass": "^4.5.3",
-    "poi": "^9.0.4",
-    "sass-loader": "^6.0.6"
+    "poi": "^12.2.14",
+    "sass-loader": "^6.0.6",
+    "vue-router": "^3.0.2",
+    "vue-template-compiler": "^2.5.21"
   }
 }

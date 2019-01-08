@@ -22,10 +22,10 @@
 </template>
 
 <script>
-  import charsets from "../components/charsets.js";
+  import charsets from "../charsets";
   import kana from "../components/kana.vue";
 
-  var doc = document.documentElement;
+  var doc = process.client ? document.documentElement : undefined;
 
   export default {
     components: {
@@ -38,7 +38,7 @@
     },
     methods: {
       error404() {
-        this.$router.push({name: "error404"});
+        this.$router.push({name: "404"});
         return false;
       },
       close() {
@@ -55,9 +55,9 @@
     },
     computed: {
       char() {
-        var params = this.$route.params;
+        var params = this.$route.query;
         var char = this.charset.filter((item) => {
-          return item.romaji === params.character;
+          return item.romaji === params.kana;
         });
         if (char.length === 0) return this.error404();
         return char[0];
@@ -65,31 +65,51 @@
       next() {
         var params = this.$route.params;
         var nextItem = this.char.nextItem;
-        return nextItem ? {name: "viewCharacter", params: {charset: params.charset, character: nextItem.romaji}} : false;
+        return nextItem ? {
+          name: "viewCharacter", 
+          params: {
+            charset: params.charset
+          },
+          query: {
+            kana: nextItem.romaji
+          }
+        } : false;
       },
       prev() {
         var params = this.$route.params;
         var prevItem = this.char.prevItem;
-        return prevItem ? {name: "viewCharacter", params: {charset: params.charset, character: prevItem.romaji}} : false;
+        return prevItem ? {
+          name: "viewCharacter", 
+          params: {
+            charset: params.charset
+          },
+          query: {
+            kana: prevItem.romaji
+          }
+        } : false;
       },
       charset() {
         return charsets[this.$route.params.charset];
       },
     },
     mounted() {
-      doc.classList.add("is-under-modal");
-      doc.setAttribute("scroll", "no");
-      var kana = this.$refs.kana;
-      kana.$on("animationStart", () => {
-        this.isPlaying = true;
-      });
-      kana.$on("animationStop", () => {
-        this.isPlaying = false;
-      });
+      if (process.client) {
+        doc.classList.add("is-under-modal");
+        doc.setAttribute("scroll", "no");
+        var kana = this.$refs.kana;
+        kana.$on("animationStart", () => {
+          this.isPlaying = true;
+        });
+        kana.$on("animationStop", () => {
+          this.isPlaying = false;
+        });
+      }
     },
     beforeDestroy() {
-      doc.classList.remove("is-under-modal");
-      doc.removeAttribute("scroll");
+      if (process.client) {
+        doc.classList.remove("is-under-modal");
+        doc.removeAttribute("scroll");
+      }
     },
   }
 </script>
