@@ -33,15 +33,15 @@ module.exports = {
     // as of webpack 2.0, webpack auto imports json
     // config.module.rules.push({ test: /\.json$/, loader: 'json-loader' });
     config.plugins.push(new webpack.BannerPlugin({
-        banner: [
-          'kakimasu.rakujira.jp',
-          '--------------------',
-          'Author: James Daniel (github.com/jaames | rakujira.jp | @rakujira)',
-          'Build hash: [hash]',
-          'Chunk hash: [chunkhash]',
-          'Last updated: ' + new Date().toDateString(),
-        ].join('\n')
-      }));
+      banner: [
+        'kakimasu.rakujira.jp',
+        '--------------------',
+        'Author: James Daniel (github.com/jaames | rakujira.jp | @rakujira)',
+        'Build hash: [hash]',
+        'Chunk hash: [chunkhash]',
+        'Last updated: ' + new Date().toDateString(),
+      ].join('\n')
+    }));
     return config;
   }
 }

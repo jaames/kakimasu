@@ -23,11 +23,11 @@
       },
       show() {
         this.isOpen = true;
-        document.body.addEventListener("click", this.bodyClickHandler, false);
+        if(process.client) document.body.addEventListener("click", this.bodyClickHandler, false);
       },
       hide() {
         this.isOpen = false;
-        document.body.removeEventListener("click", this.bodyClickHandler);
+        if(process.client) document.body.removeEventListener("click", this.bodyClickHandler);
       },
       toggle() {
         var fn = this.isOpen ? this.hide : this.show;

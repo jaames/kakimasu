@@ -25,7 +25,7 @@
   import charsets from "../charsets";
   import kana from "../components/kana.vue";
 
-  var doc = document.documentElement;
+  var doc = process.client ? document.documentElement : undefined;
 
   export default {
     components: {
@@ -93,19 +93,23 @@
       },
     },
     mounted() {
-      doc.classList.add("is-under-modal");
-      doc.setAttribute("scroll", "no");
-      var kana = this.$refs.kana;
-      kana.$on("animationStart", () => {
-        this.isPlaying = true;
-      });
-      kana.$on("animationStop", () => {
-        this.isPlaying = false;
-      });
+      if (process.client) {
+        doc.classList.add("is-under-modal");
+        doc.setAttribute("scroll", "no");
+        var kana = this.$refs.kana;
+        kana.$on("animationStart", () => {
+          this.isPlaying = true;
+        });
+        kana.$on("animationStop", () => {
+          this.isPlaying = false;
+        });
+      }
     },
     beforeDestroy() {
-      doc.classList.remove("is-under-modal");
-      doc.removeAttribute("scroll");
+      if (process.client) {
+        doc.classList.remove("is-under-modal");
+        doc.removeAttribute("scroll");
+      }
     },
   }
 </script>
