@@ -1,0 +1,9 @@
+/*!
+ * kakimasu.rakujira.jp
+ * --------------------
+ * Author: James Daniel (github.com/jaames | rakujira.jp | @rakujira)
+ * Build hash: ef4e08edf655655c0fc0
+ * Chunk hash: 5389b46b057ae8546887
+ * Last updated: Tue Jan 08 2019
+ */
+(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{20:function(t,r,e){},25:function(t,r,e){"use strict";var a=e(20);e.n(a).a},27:function(t,r,e){"use strict";e.r(r);var a=function(){var t=this.$createElement,r=this._self._c||t;return r("div",{staticClass:"page page--index"},[r("grid",{ref:"grid",attrs:{characters:this.charsetItems}}),this._v(" "),r("transition",{attrs:{name:"fade"}},[r("router-view")],1)],1)};a._withStripped=!0;var s=e(6),n=function(){var t=this,r=t.$createElement,e=t._self._c||r;return e("ul",{staticClass:"grid"},t._l(t.characters,function(r){return e("li",{staticClass:"grid__item"},[r.spacer?e("div",{staticClass:"spacer"}):e("router-link",{staticClass:"kana__link",attrs:{"router-link":"",to:{name:"viewCharacter",params:{charset:t.charsetId},query:{kana:r.romaji}}}},[e("kana",{attrs:{character:r,label:"true"}})],1)],1)}),0)};n._withStripped=!0;var i={props:["characters"],components:{kana:e(22).a},computed:{charsetId:function(){return this.$parent.charsetId}}},c=(e(25),e(2)),u=Object(c.a)(i,n,[],!1,null,null,null);u.options.__file="src/components/grid.vue";var o={components:{grid:u.exports},computed:{charsetId:function(){return this.$route.params.charset},charsetItems:function(){var t=this.$route.params.charset;return s.a[t]}},created:function(){s.a.hasOwnProperty(this.charsetId)||this.$router.push({name:"404"}),this.$route.query.hasOwnProperty("kana")||this.$router.push({name:"index"})}},h=Object(c.a)(o,a,[],!1,null,null,null);h.options.__file="src/views/index.vue";r.default=h.exports}}]);

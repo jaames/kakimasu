@@ -1,0 +1,8 @@
+/*!
+ * kakimasu.rakujira.jp
+ * --------------------
+ * Author: James Daniel (github.com/jaames | rakujira.jp | @rakujira)
+ * Build hash: ef4e08edf655655c0fc0
+ * Chunk hash: 5389b46b057ae8546887
+ * Last updated: Tue Jan 08 2019
+ */.grid{padding:0;list-style-type:none;margin:0 0 0 -6px}.grid:after,.grid:before{display:table;content:" ";flex-basis:0;order:1}.grid:after{clear:both}@media print,screen and (min-width:40em){.grid{margin-left:-2rem}}@media print,screen and (min-width:64em){.grid{margin-left:-4rem}}.grid__item{float:left;width:20%;padding-left:6px;margin-bottom:1rem}@media print,screen and (min-width:40em){.grid__item{padding-left:2rem}}@media print,screen and (min-width:64em){.grid__item{margin-bottom:3rem;padding-left:4rem}}.grid .kana__link{display:block;text-decoration:none}.grid .kana__body{background:#fafafa;border-radius:50%;box-shadow:0 2px 0 0 #c1e4f6}.grid .kana__body:after,.grid .kana__body:before{display:table;content:" ";flex-basis:0;order:1}.grid .kana__body:after{clear:both}.grid .kana__svg{width:32px;height:32px;margin:10px auto;transform:scale(1);transition:transform .2s ease;z-index:0}@media print,screen and (min-width:40em){.grid .kana__svg{width:60px;height:60px;margin:20px auto}}@media print,screen and (min-width:64em){.grid .kana__svg{width:82px;height:82px;margin:27px auto}}.grid .kana:hover .kana__svg{transform:scale(1.05)}.grid .spacer{height:50px;border-radius:50%;background:none;border:2px dashed #fafafa}@media print,screen and (min-width:40em){.grid .spacer{height:100px}}@media print,screen and (min-width:64em){.grid .spacer{border:3px dashed #fafafa;height:136px}}

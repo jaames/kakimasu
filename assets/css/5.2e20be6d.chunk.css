@@ -1,0 +1,8 @@
+/*!
+ * kakimasu.rakujira.jp
+ * --------------------
+ * Author: James Daniel (github.com/jaames | rakujira.jp | @rakujira)
+ * Build hash: ef4e08edf655655c0fc0
+ * Chunk hash: 2e20be6d2a87e4637963
+ * Last updated: Tue Jan 08 2019
+ */.modal{width:312px;position:absolute;top:50%;left:50%;transform:translate3d(-50%,-50%,0)}@media print,screen and (min-width:40em){.modal{width:380px}}.modal .kana__svg{width:90%;height:90%;margin:0 auto}.modal__frame{position:fixed;height:100vh;width:100vw;top:0;left:0;right:0;bottom:0;background-color:rgba(37,29,55,.85)}.modal__frame.modal__frame--clear{pointer-events:none;background-color:none;background:none}.modal__head{font-size:2.5rem;position:relative;text-align:center}.modal__head:after,.modal__head:before{display:table;content:" ";flex-basis:0;order:1}.modal__head:after{clear:both}.modal__title{font-size:inherit;margin:0;padding:0;display:inline-block;vertical-align:middle}.modal__subtitle{display:block;font-size:1rem}.modal__close{padding:0 12px;position:absolute;top:0;right:0;bottom:0;display:inline-block}.modal__body{padding:0 48px;position:relative}.modal__foot{margin-top:1rem;text-align:center;display:block}.modal__foot .button{margin:0 auto;width:84px}.modal__arrows{position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);height:96px}.arrow{display:block;height:96px;padding:36px 12px}.arrow.arrow--left{float:left}.arrow.arrow--right{float:right}
