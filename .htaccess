@@ -1,0 +1,3 @@
+# Forwarder for old site location (kakimasu.rakujira.jp)
+RewriteEngine on 
+RewriteRule ^(.*)$ https://jaames.github.io/kakimasu/$1 [R=301,L]

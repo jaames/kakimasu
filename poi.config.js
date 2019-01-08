@@ -3,6 +3,7 @@ var webpack = require('webpack');
 module.exports = {
   entry: 'src/index.js',
   output: {
+    publicUrl: '/kakimasu/',
     html: {
       template: './src/templates/index.html',
       title: 'Kakimasu',
